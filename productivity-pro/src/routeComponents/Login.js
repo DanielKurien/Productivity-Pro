@@ -54,7 +54,7 @@ const Login = ({ history }) => {
             value={email}
             required={true}
             placeholder="Email"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div id="password">
@@ -66,7 +66,7 @@ const Login = ({ history }) => {
             required={true}
             onChange={handlePasswordChange}
             placeholder="Password"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <button type="submit">Enter Account</button>

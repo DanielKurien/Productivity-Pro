@@ -1,7 +1,7 @@
 //imports for Sign up Component (Routes, Hooks and Icons)
 import React, { useState } from "react";
 import { withRouter } from "react-router";
-import { auth } from "../services/firebase";
+import { auth, db } from "../services/firebase";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
 import "./SignUp.css";
@@ -17,6 +17,12 @@ const SignUp = ({ history }) => {
     try {
       const user = await auth.createUserWithEmailAndPassword(email, password);
       localStorage.setItem("user", user.email);
+
+      //creating collection for user when they sign up
+      await db.collection("users").doc(user.uid).set({
+        notes: [],
+      });
+      console.log("success");
       history.push("/home");
     } catch (error) {
       alert(error);
@@ -47,7 +53,7 @@ const SignUp = ({ history }) => {
             value={email}
             required={true}
             placeholder="Email"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div id="password">
@@ -59,7 +65,7 @@ const SignUp = ({ history }) => {
             required={true}
             onChange={handlePasswordChange}
             placeholder="Password"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <button type="submit">Create Account</button>
