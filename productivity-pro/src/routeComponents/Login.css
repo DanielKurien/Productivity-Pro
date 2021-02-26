@@ -1,0 +1,86 @@
+/* Styles for Login Component */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+
+#loginForm {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5cdb95;
+  color: white;
+}
+input {
+  background-color: #05386b;
+  color: #5cdb95;
+  border: none;
+  font-family: "Noto Sans JP", sans-serif;
+  outline: none;
+  height: 2rem;
+  font-size: 1.5rem;
+  padding: 0.6rem 1rem;
+}
+form {
+  display: flex;
+  background-color: #05386b;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  height: 30vh;
+  padding: 3rem;
+  flex-direction: column;
+}
+#login {
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 0rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 2rem;
+}
+#emailicon {
+  color: #5cdb95;
+  font-size: 1.6rem;
+}
+
+#password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#passwordicon {
+  color: #5cdb95;
+  font-size: 1.6rem;
+}
+
+::placeholder {
+  color: #edf5e1;
+}
+
+button {
+  background-color: #5cdb95;
+  border-radius: 25px;
+  border: white;
+  color: #05386b;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+button:hover {
+  background-color: #05386b;
+  color: #5cdb95;
+  border: 1px solid white;
+}
