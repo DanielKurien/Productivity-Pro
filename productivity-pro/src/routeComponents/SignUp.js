@@ -10,23 +10,23 @@ import "./SignUp.css";
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   // function to handle user authentication when user submits sign up form
-  const handleSignUp = async (event) => {
+  //changed function to promises (easier to word with then async/await)
+  const handleSignUp = (event) => {
     event.preventDefault();
-    try {
-      const user = await auth.createUserWithEmailAndPassword(email, password);
-      localStorage.setItem("user", user.email);
-
-      //creating collection for user when they sign up
-      await db.collection("users").doc(user.uid).set({
-        notes: [],
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        localStorage.setItem("user", cred.user.email);
+        db.collection("users").doc(cred.user.uid).set({
+          todos: [],
+        });
+        history.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
       });
-      console.log("success");
-      history.push("/home");
-    } catch (error) {
-      alert(error);
-    }
   };
 
   //updates state when user changes email input
