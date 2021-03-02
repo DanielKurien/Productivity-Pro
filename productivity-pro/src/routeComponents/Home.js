@@ -2,6 +2,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { auth, db } from "../services/firebase";
 import { AuthContext } from "../Auth";
+import EventCalendar from "../components/EventCalendar";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import "./Home.css";
 
 // Home page  (Only visible when user is signed in and authenticated)
@@ -11,6 +15,7 @@ const Home = () => {
   const { currentUser } = useContext(AuthContext);
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [newDate, setNewDate] = useState(null);
 
   //fetching users current todos from database
   const fetchTodos = () => {
@@ -30,12 +35,25 @@ const Home = () => {
   //function for adding a new todo
   const handleNewTodo = async (event) => {
     event.preventDefault();
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate();
+
+    if (month <= 9) {
+      month = `0${month}`;
+    }
+    if (day <= 9) {
+      day = `0${day}`;
+    }
+    let formattedDate = `${newDate.getFullYear()}-${month}-${day}`;
+
     const todoObject = {
       id: todos.length + 1,
-      value: newTodo,
+      title: newTodo,
+      date: formattedDate,
     };
     setTodos(todos.concat(todoObject));
     setNewTodo("");
+    setNewDate(null);
     try {
       await db
         .collection("users")
@@ -68,7 +86,6 @@ const Home = () => {
   };
 
   const updateTodo = async (todoId, index) => {
-    console.log(index);
     let todo = todos.filter((todo) => todo.id === todoId);
     todo = todo[0];
 
@@ -93,7 +110,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div id="homepage">
       <h1>Home</h1>
       <button
         onClick={() => {
@@ -102,14 +119,21 @@ const Home = () => {
       >
         Log Out
       </button>
-      {/* Basic todo form created for now. Used to add todos*/}
+      {/* Basic todo form created for now. Used to add todos */}
+
       <form id="todoForm" onSubmit={handleNewTodo}>
         <input type="text" onChange={handleNewTodoChange} value={newTodo} />
+        <DatePicker
+          dateFormat="yyyy-MM-dd"
+          selected={newDate}
+          onChange={(date) => setNewDate(date)}
+        />
+        <button type="submit" />
       </form>
       {/* Mapping out todos */}
       {todos.map((todo) => (
         <div key={todo.id}>
-          <p>{todo.value}</p>
+          <p>{todo.title}</p>
           <button
             onClick={() => {
               deleteTodo(todo.id);
@@ -126,7 +150,8 @@ const Home = () => {
           </button>
         </div>
       ))}
-    </>
+      <EventCalendar todos={todos} />
+    </div>
   );
 };
 

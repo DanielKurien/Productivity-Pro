@@ -1,3 +1,4 @@
-#todoForm {
-  background-color: white;
+#homepage {
+  display: flex;
+  justify-content: space-evenly;
 }

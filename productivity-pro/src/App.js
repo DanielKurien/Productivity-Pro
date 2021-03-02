@@ -9,6 +9,7 @@ import { AuthProvider } from "./Auth";
 import PrivateRoute from "./PrivateRoute";
 import "./App.css";
 
+
 const App = () => {
   return (
     // AuthProvider tag allows state from context to be passed to other components
