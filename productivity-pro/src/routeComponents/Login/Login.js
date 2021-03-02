@@ -1,33 +1,35 @@
-//imports for Sign up Component (Routes, Hooks and Icons)
-import React, { useState } from "react";
-import { withRouter } from "react-router";
-import { auth, db } from "../services/firebase";
+//imports for Login Components, (Router, Hooks, Icons)
+import React, { useContext, useState } from "react";
+import { withRouter, Redirect } from "react-router";
+import { auth } from "../../services/firebase";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
-import "./SignUp.css";
+import { AuthContext } from "../../Auth";
+import "./Login.css";
 
-//Form is extremely similar to sign up form
-const SignUp = ({ history }) => {
+const Login = ({ history }) => {
+  //local state used to set email and password in form
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // function to handle user authentication when user submits sign up form
-  //changed function to promises (easier to word with then async/await)
-  const handleSignUp = (event) => {
+
+  // authenticating with firebase when user logs in
+  const handleLogin = async (event) => {
     event.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((cred) => {
-        localStorage.setItem("user", cred.user.email);
-        db.collection("users").doc(cred.user.uid).set({
-          todos: [],
-        });
-        history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert(err);
-      });
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      //method allows user to be in the push
+      history.push("/home");
+    } catch (error) {
+      alert(error);
+    }
   };
+
+  //redirecting user to homepage if user context is there
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/home" />;
+  }
 
   //updates state when user changes email input
   const handleEmailChange = (event) => {
@@ -39,11 +41,10 @@ const SignUp = ({ history }) => {
     setPassword(event.target.value);
   };
 
-  //code for Sign Up Component
   return (
-    <div id="signUpForm">
-      <form onSubmit={handleSignUp}>
-        <h1 id="signup">Sign up</h1>
+    <div id="loginForm">
+      <form onSubmit={handleLogin}>
+        <h1 id="login">Login</h1>
         <div id="email">
           <AiOutlineMail id="emailicon" />
           <input
@@ -68,10 +69,10 @@ const SignUp = ({ history }) => {
             autoComplete="off"
           />
         </div>
-        <button type="submit">Create Account</button>
+        <button type="submit">Enter Account</button>
       </form>
     </div>
   );
 };
 
-export default withRouter(SignUp);
+export default withRouter(Login);

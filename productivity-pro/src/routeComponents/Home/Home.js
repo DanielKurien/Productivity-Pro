@@ -1,8 +1,8 @@
 //imports needed for Home Component
 import React, { useContext, useEffect, useState } from "react";
-import { auth, db } from "../services/firebase";
-import { AuthContext } from "../Auth";
-import EventCalendar from "../components/EventCalendar";
+import { auth, db } from "../../services/firebase";
+import { AuthContext } from "../../Auth";
+import EventCalendar from "../../components/EventCalendar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
