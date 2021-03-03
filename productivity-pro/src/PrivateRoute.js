@@ -1,7 +1,7 @@
 //imports for Private Route (only accesed when user is loggen in)
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { AuthContext } from "./Auth";
+import { AuthContext } from "././context/Auth";
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
   // Context needed to check if user is logged in to access private route

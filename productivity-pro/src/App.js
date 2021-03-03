@@ -5,7 +5,7 @@ import Home from "./routeComponents/Home/Home";
 import Login from "./routeComponents//Login/Login";
 import SignUp from "./routeComponents/SignUp/SignUp";
 import Root from "./routeComponents/Root/Root";
-import { AuthProvider } from "./Auth";
+import { AuthProvider } from "././context/Auth";
 import PrivateRoute from "./PrivateRoute";
 import "./App.css";
 

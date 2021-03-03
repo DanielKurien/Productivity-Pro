@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import { withRouter, Redirect } from "react-router";
 import { auth } from "../../services/firebase";
-import { AuthContext } from "../../Auth";
+import { AuthContext } from "../.././context/Auth";
 import {
   LoginWrapper,
   LoginForm,

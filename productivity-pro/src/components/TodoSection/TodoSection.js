@@ -1,7 +1,7 @@
 //imports for TodoSection;
 import React, { useContext } from "react";
 import { TodoSectionWrapper } from "./TodoSectionElements";
-import { TodosContext } from "../../TodosContext";
+import { TodosContext } from "../../context/TodosContext";
 import TodoForm from "../TodoForm/TodoForm";
 import Todo from "../Todo/Todo";
 

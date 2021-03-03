@@ -1,8 +1,8 @@
 // imports for TodoForm
 import React, { useContext, useState } from "react";
 import { TodoFormWrapper, TodoFormInput, TodoButton } from "./TodoFormElements";
-import { TodosContext } from "../../TodosContext";
-import { AuthContext } from "../../Auth";
+import { TodosContext } from "../.././context/TodosContext";
+import { AuthContext } from "../.././context/Auth";
 import { db } from "../../services/firebase";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import "./EventCalendar";
-import { TodosContext } from "../TodosContext";
+import { TodosContext } from ".././context/TodosContext";
 import styled from "styled-components";
 
 const EventCalendarWrapper = styled.div`

@@ -1,7 +1,8 @@
+//imports needed for Todo Components
 import React, { useContext } from "react";
 import { TodoWrapper } from "./TodoElements";
-import { AuthContext } from "../../Auth";
-import { TodosContext } from "../../TodosContext";
+import { AuthContext } from "../.././context/Auth";
+import { TodosContext } from "../.././context/TodosContext";
 import { db } from "../../services/firebase";
 
 const Todo = ({ todo }) => {

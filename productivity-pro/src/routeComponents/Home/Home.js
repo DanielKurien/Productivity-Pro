@@ -1,8 +1,8 @@
 //imports needed for Home Component
 import React, { useContext, useEffect, useState } from "react";
 import { auth, db } from "../../services/firebase";
-import { AuthContext } from "../../Auth";
-import { TodosContext } from "../../TodosContext";
+import { AuthContext } from "../.././context/Auth";
+import { TodosContext } from "../../context/TodosContext";
 import EventCalendar from "../../components/EventCalendar";
 import TodoSection from "../../components/TodoSection/TodoSection";
 
