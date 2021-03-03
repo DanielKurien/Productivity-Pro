@@ -2,10 +2,18 @@
 import React, { useContext, useState } from "react";
 import { withRouter, Redirect } from "react-router";
 import { auth } from "../../services/firebase";
-import { AiOutlineMail } from "react-icons/ai";
-import { RiLockPasswordFill } from "react-icons/ri";
 import { AuthContext } from "../../Auth";
-import "./Login.css";
+import {
+  LoginWrapper,
+  LoginForm,
+  LoginHeading,
+  LoginEmailWrapper,
+  LoginPasswordWrapper,
+  LoginInput,
+  LoginEmailIcon,
+  LoginPasswordIcon,
+  LoginButton,
+} from "./LoginElements";
 
 const Login = ({ history }) => {
   //local state used to set email and password in form
@@ -42,12 +50,12 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div id="loginForm">
-      <form onSubmit={handleLogin}>
-        <h1 id="login">Login</h1>
-        <div id="email">
-          <AiOutlineMail id="emailicon" />
-          <input
+    <LoginWrapper>
+      <LoginForm onSubmit={handleLogin}>
+        <LoginHeading>Login</LoginHeading>
+        <LoginEmailWrapper>
+          <LoginEmailIcon />
+          <LoginInput
             name="email"
             type="email"
             onChange={handleEmailChange}
@@ -56,10 +64,10 @@ const Login = ({ history }) => {
             placeholder="Email"
             autoComplete="off"
           />
-        </div>
-        <div id="password">
-          <RiLockPasswordFill id="passwordicon" />
-          <input
+        </LoginEmailWrapper>
+        <LoginPasswordWrapper>
+          <LoginPasswordIcon />
+          <LoginInput
             name="password"
             value={password}
             type="password"
@@ -68,10 +76,10 @@ const Login = ({ history }) => {
             placeholder="Password"
             autoComplete="off"
           />
-        </div>
-        <button type="submit">Enter Account</button>
-      </form>
-    </div>
+        </LoginPasswordWrapper>
+        <LoginButton type="submit">Enter Account</LoginButton>
+      </LoginForm>
+    </LoginWrapper>
   );
 };
 

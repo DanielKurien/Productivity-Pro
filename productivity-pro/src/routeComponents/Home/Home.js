@@ -6,8 +6,6 @@ import EventCalendar from "../../components/EventCalendar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import "./Home.css";
-
 // Home page  (Only visible when user is signed in and authenticated)
 
 const Home = () => {
