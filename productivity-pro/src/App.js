@@ -1,11 +1,11 @@
 //Imports neeeded for App (mainly route components)
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./routeComponents/Home";
-import Login from "./routeComponents//Login";
-import SignUp from "./routeComponents/SignUp";
-import Root from "./routeComponents/Root";
-import { AuthProvider } from "./Auth";
+import Home from "./routeComponents/Home/Home";
+import Login from "./routeComponents//Login/Login";
+import SignUp from "./routeComponents/SignUp/SignUp";
+import Root from "./routeComponents/Root/Root";
+import { AuthProvider } from "././context/Auth";
 import PrivateRoute from "./PrivateRoute";
 import "./App.css";
 

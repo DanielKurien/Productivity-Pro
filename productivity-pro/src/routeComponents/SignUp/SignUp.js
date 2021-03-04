@@ -1,10 +1,18 @@
 //imports for Sign up Component (Routes, Hooks and Icons)
 import React, { useState } from "react";
 import { withRouter } from "react-router";
-import { auth, db } from "../services/firebase";
-import { AiOutlineMail } from "react-icons/ai";
-import { RiLockPasswordFill } from "react-icons/ri";
-import "./SignUp.css";
+import { auth, db } from "../../services/firebase";
+import {
+  SignUpWrapper,
+  SignUpForm,
+  SignUpHeading,
+  SignUpEmailWrapper,
+  SignUpPasswordWrapper,
+  SignUpInput,
+  SignUpEmailIcon,
+  SignUpPasswordIcon,
+  SignUpButton,
+} from "./SignUpElements";
 
 //Form is extremely similar to sign up form
 const SignUp = ({ history }) => {
@@ -41,12 +49,12 @@ const SignUp = ({ history }) => {
 
   //code for Sign Up Component
   return (
-    <div id="signUpForm">
-      <form onSubmit={handleSignUp}>
-        <h1 id="signup">Sign up</h1>
-        <div id="email">
-          <AiOutlineMail id="emailicon" />
-          <input
+    <SignUpWrapper>
+      <SignUpForm onSubmit={handleSignUp}>
+        <SignUpHeading>Sign up</SignUpHeading>
+        <SignUpEmailWrapper>
+          <SignUpEmailIcon />
+          <SignUpInput
             name="email"
             type="email"
             onChange={handleEmailChange}
@@ -55,10 +63,10 @@ const SignUp = ({ history }) => {
             placeholder="Email"
             autoComplete="off"
           />
-        </div>
-        <div id="password">
-          <RiLockPasswordFill id="passwordicon" />
-          <input
+        </SignUpEmailWrapper>
+        <SignUpPasswordWrapper>
+          <SignUpPasswordIcon />
+          <SignUpInput
             name="password"
             value={password}
             type="password"
@@ -67,10 +75,10 @@ const SignUp = ({ history }) => {
             placeholder="Password"
             autoComplete="off"
           />
-        </div>
-        <button type="submit">Create Account</button>
-      </form>
-    </div>
+        </SignUpPasswordWrapper>
+        <SignUpButton type="submit">Create Account</SignUpButton>
+      </SignUpForm>
+    </SignUpWrapper>
   );
 };
 
