@@ -15,7 +15,7 @@ const TodoSection = () => {
       <TodoForm />
       {/* Rendering out each todo*/}
       {todos.map((todo) => (
-        <Todo id={todo.id} todo={todo} />
+        <Todo key={todo.id} todo={todo} />
       ))}
     </TodoSectionWrapper>
   );
