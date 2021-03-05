@@ -6,17 +6,16 @@ import { AuthContext } from "././context/Auth";
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
   // Context needed to check if user is logged in to access private route
   const { currentUser } = useContext(AuthContext);
-
   return (
     <Route
       {...rest}
-      render={(routeProps) =>
-        !!currentUser ? (
-          <RouteComponent {...routeProps} />
-        ) : (
-          <Redirect to={"/"} />
-        )
-      }
+      render={(routeProps) => {
+        if (currentUser !== null) {
+          return <RouteComponent {...routeProps} />;
+        } else {
+          return <Redirect to={"/"} />;
+        }
+      }}
     />
   );
 };
