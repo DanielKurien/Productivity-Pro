@@ -16,6 +16,9 @@ const scopes = [
   "user-modify-playback-state",
 ];
 
+const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
+const clientId = REACT_APP_SPOTIFY_CLIENT_ID;
+
 export const getTokenFromUrl = () => {
   return window.location.hash
     .substring(1)
