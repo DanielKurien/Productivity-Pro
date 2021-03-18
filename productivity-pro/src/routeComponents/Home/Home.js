@@ -4,6 +4,7 @@ import { auth, db } from "../../services/firebase";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../../context/TodosContext";
 import EventCalendar from "../../components/EventCalendar";
+import CountdownTimer from "../../components/Countdown/CountdownTimer";
 import TodoSection from "../../components/TodoSection/TodoSection";
 import SpotifyFunctionality from "../../components/SpotifyFunctionality/SpotifyFunctionality";
 // Home page  (Only visible when user is signed in and authenticated)
@@ -38,9 +39,9 @@ const Home = () => {
       >
         Log Out
       </button>
-
-      {/* Providing context to component*/}
       <SpotifyFunctionality />
+      {/* Providing context to component*/}
+      <CountdownTimer />
       <TodosContext.Provider value={{ todos, setTodos }}>
         <TodoSection />
         <EventCalendar />

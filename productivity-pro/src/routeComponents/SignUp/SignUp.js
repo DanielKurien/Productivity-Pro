@@ -29,6 +29,10 @@ const SignUp = ({ history }) => {
         db.collection("users").doc(cred.user.uid).set({
           todos: [],
         });
+        db.collection("emails").doc(cred.user.email).set({
+          todosCompleted: 0,
+          pomodoros: 0,
+        });
         history.push("/login");
       })
       .catch((err) => {
