@@ -7,9 +7,10 @@ import styled from "styled-components";
 
 const EventCalendarWrapper = styled.div`
   .fc {
-    display: flex;
     border-color: green;
     background-color: red;
+    width: 32rem;
+    height: 32rem;
   }
 `;
 const EventCalendar = () => {
@@ -18,8 +19,13 @@ const EventCalendar = () => {
     <EventCalendarWrapper>
       <FullCalendar
         plugins={[dayGridPlugin]}
-        initialView="dayGridMonth"
+        initialView="dayGridDay"
         events={[...todos]}
+        headerToolbar={{
+          left: "prev,next",
+          center: "title",
+          right: "dayGridDay,dayGridWeek,dayGridMonth",
+        }}
       />
       ;
     </EventCalendarWrapper>

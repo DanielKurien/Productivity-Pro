@@ -1,12 +1,14 @@
 //imports needed for Home Component
 import React, { useContext, useEffect, useState } from "react";
-import { auth, db } from "../../services/firebase";
+import { db } from "../../services/firebase";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../../context/TodosContext";
 import EventCalendar from "../../components/EventCalendar";
 import CountdownTimer from "../../components/Countdown/CountdownTimer";
 import TodoSection from "../../components/TodoSection/TodoSection";
 import SpotifyFunctionality from "../../components/SpotifyFunctionality/SpotifyFunctionality";
+import HomeNav from "../../components/HomeNav/HomeNav";
+import { HomeContainer } from "./HomeElements";
 // Home page  (Only visible when user is signed in and authenticated)
 
 const Home = () => {
@@ -30,15 +32,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div id="homepage">
-      <h1>Home</h1>
-      <button
-        onClick={() => {
-          auth.signOut();
-        }}
-      >
-        Log Out
-      </button>
+    <HomeContainer>
+      <HomeNav />
       <SpotifyFunctionality />
       {/* Providing context to component*/}
       <CountdownTimer />
@@ -46,7 +41,7 @@ const Home = () => {
         <TodoSection />
         <EventCalendar />
       </TodosContext.Provider>
-    </div>
+    </HomeContainer>
   );
 };
 
