@@ -3,6 +3,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { AuthContext } from "../../context/Auth";
 import { db } from "../../services/firebase";
 import firebase from "firebase/app";
+import { CountdownTimerWrapper } from "./CountdownTimerElements";
 
 const minuteSeconds = 60;
 const hourSeconds = 3600;
@@ -35,7 +36,7 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="App">
+    <CountdownTimerWrapper>
       <CountdownCircleTimer
         {...timerProps}
         colors={[["#EF798A"]]}
@@ -81,7 +82,7 @@ const CountdownTimer = () => {
         Restart Timer
       </button>
       <button onClick={() => setPlaying(!playing)}>Click Me</button>
-    </div>
+    </CountdownTimerWrapper>
   );
 };
 
