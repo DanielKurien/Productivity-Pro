@@ -8,7 +8,14 @@ import CountdownTimer from "../../components/Countdown/CountdownTimer";
 import TodoSection from "../../components/TodoSection/TodoSection";
 import SpotifyFunctionality from "../../components/SpotifyFunctionality/SpotifyFunctionality";
 import HomeNav from "../../components/HomeNav/HomeNav";
-import { HomeContainer } from "./HomeElements";
+import StatTracker from "../../components/StatTracker/StatTracker";
+import {
+  HomeContainer,
+  HomeFlexbox,
+  HomeLeftColumnWrapper,
+  HomeRightColumnWrapper,
+  RightTop,
+} from "./HomeElements";
 // Home page  (Only visible when user is signed in and authenticated)
 
 const Home = () => {
@@ -34,12 +41,20 @@ const Home = () => {
   return (
     <HomeContainer>
       <HomeNav />
-      <SpotifyFunctionality />
-      {/* Providing context to component*/}
-      <CountdownTimer />
       <TodosContext.Provider value={{ todos, setTodos }}>
-        <TodoSection />
-        <EventCalendar />
+        <HomeFlexbox>
+          <HomeLeftColumnWrapper>
+            <CountdownTimer />
+            <SpotifyFunctionality />
+          </HomeLeftColumnWrapper>
+          <HomeRightColumnWrapper>
+            <RightTop>
+              <TodoSection />
+              <EventCalendar />
+            </RightTop>
+            <StatTracker />
+          </HomeRightColumnWrapper>
+        </HomeFlexbox>
       </TodosContext.Provider>
     </HomeContainer>
   );

@@ -8,9 +8,9 @@ import styled from "styled-components";
 const EventCalendarWrapper = styled.div`
   .fc {
     border-color: green;
-    background-color: red;
-    width: 32rem;
-    height: 32rem;
+    background-color: pink;
+    height: 100%;
+    flex: 1.5;
   }
 `;
 const EventCalendar = () => {
@@ -27,7 +27,6 @@ const EventCalendar = () => {
           right: "dayGridDay,dayGridWeek,dayGridMonth",
         }}
       />
-      ;
     </EventCalendarWrapper>
   );
 };
