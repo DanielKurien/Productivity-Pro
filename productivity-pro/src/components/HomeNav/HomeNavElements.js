@@ -7,16 +7,8 @@ export const HomeNavWrapper = styled.nav`
   justify-content: space-between;
   padding: 0.5rem;
   background-color: #5cdb95;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  height: 7vh;
-=======
   height: 5vh;
   border-bottom: 0.25rem solid #05386b; ;
->>>>>>> Stashed changes
-=======
-  height: 2.5vh;
->>>>>>> 75754cec0e2f053c8e74501aadda19e2bf2f2dba
 `;
 
 export const HomeNavBtn = styled.button``;
