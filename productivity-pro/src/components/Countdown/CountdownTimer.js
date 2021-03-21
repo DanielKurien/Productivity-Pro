@@ -3,7 +3,11 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { AuthContext } from "../../context/Auth";
 import { db } from "../../services/firebase";
 import firebase from "firebase/app";
-import { CountdownTimerWrapper, TimersWrapper } from "./CountdownTimerElements";
+import {
+  CountdownTimerWrapper,
+  TimersWrapper,
+  RestartButton,
+} from "./CountdownTimerElements";
 
 const minuteSeconds = 60;
 const hourSeconds = 3600;
@@ -74,7 +78,7 @@ const CountdownTimer = () => {
           }
         </CountdownCircleTimer>
       </TimersWrapper>
-      <button
+      <RestartButton
         onClick={() => {
           setSecondsKey((prevKey) => prevKey + 1);
           setMinutesKey((prevKey) => prevKey + 1);
@@ -82,7 +86,7 @@ const CountdownTimer = () => {
         }}
       >
         Restart Timer
-      </button>
+      </RestartButton>
       <button onClick={() => setPlaying(!playing)}>Click Me</button>
     </CountdownTimerWrapper>
   );

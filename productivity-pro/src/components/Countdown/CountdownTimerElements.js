@@ -18,3 +18,5 @@ export const TimersWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
 `;
+
+export const RestartButton = styled.button``;
