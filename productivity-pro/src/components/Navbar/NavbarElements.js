@@ -5,7 +5,8 @@ export const Nav = styled.nav`
   box-sizing: border-box;
   padding: 0 3rem;
   display: flex;
-  background-color: #5cdb95;
+  border-bottom: 0.2rem solid #525f88;
+  background-color: #3e4671;
   color: white;
   min-height: 12vh;
   align-items: center;
@@ -20,7 +21,9 @@ export const NavLogo = styled.h1`
   font-family: "Dosis", sans-serif;
   color: #5cdb95;
   font-size: 1.5rem;
-  background-color: #05386b;
+  background-color: #525f88;
+  border: 0.2rem solid #364067;
+  border-radius: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   padding: 0.5rem;
@@ -36,12 +39,12 @@ export const NavLink = styled(Link)`
   font-family: "Noto Sans JP", sans-serif;
   margin: 1rem;
   font-size: 1.1rem;
-  background-color: #05386b;
+  background-color: #525f88;
   border-radius: 25px;
-  color: white;
+  color: #d7dbf1;
   padding: 0.5rem 1rem;
 
   &:hover {
-    color: #8ee4af;
+    color: #5cdb95;
   }
 `;

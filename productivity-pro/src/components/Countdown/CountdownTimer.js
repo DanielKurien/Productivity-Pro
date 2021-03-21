@@ -3,7 +3,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { AuthContext } from "../../context/Auth";
 import { db } from "../../services/firebase";
 import firebase from "firebase/app";
-import { CountdownTimerWrapper } from "./CountdownTimerElements";
+import { CountdownTimerWrapper, TimersWrapper } from "./CountdownTimerElements";
 
 const minuteSeconds = 60;
 const hourSeconds = 3600;
@@ -37,41 +37,43 @@ const CountdownTimer = () => {
 
   return (
     <CountdownTimerWrapper>
-      <CountdownCircleTimer
-        {...timerProps}
-        colors={[["#EF798A"]]}
-        key={minutesKey}
-        duration={hourSeconds}
-        initialRemainingTime={remainingTime % hourSeconds}
-        onComplete={(totalElapsedTime) => [
-          remainingTime - totalElapsedTime > minuteSeconds,
-        ]}
-      >
-        {({ elapsedTime }) =>
-          renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
-        }
-      </CountdownCircleTimer>
-      <CountdownCircleTimer
-        {...timerProps}
-        colors={[["#218380"]]}
-        key={secondsKey}
-        duration={minuteSeconds}
-        initialRemainingTime={remainingTime % minuteSeconds}
-        onComplete={(totalElapsedTime) => {
-          if (totalElapsedTime - remainingTime === 0) {
-            db.collection("emails")
-              .doc(currentUser.email)
-              .update({
-                pomodoros: firebase.firestore.FieldValue.increment(1),
-              });
+      <TimersWrapper>
+        <CountdownCircleTimer
+          {...timerProps}
+          colors={[["#EF798A"]]}
+          key={minutesKey}
+          duration={hourSeconds}
+          initialRemainingTime={remainingTime % hourSeconds}
+          onComplete={(totalElapsedTime) => [
+            remainingTime - totalElapsedTime > minuteSeconds,
+          ]}
+        >
+          {({ elapsedTime }) =>
+            renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
           }
-          return [remainingTime - totalElapsedTime > 0];
-        }}
-      >
-        {({ elapsedTime }) =>
-          renderTime("seconds", getTimeSeconds(elapsedTime))
-        }
-      </CountdownCircleTimer>
+        </CountdownCircleTimer>
+        <CountdownCircleTimer
+          {...timerProps}
+          colors={[["#218380"]]}
+          key={secondsKey}
+          duration={minuteSeconds}
+          initialRemainingTime={remainingTime % minuteSeconds}
+          onComplete={(totalElapsedTime) => {
+            if (totalElapsedTime - remainingTime === 0) {
+              db.collection("emails")
+                .doc(currentUser.email)
+                .update({
+                  pomodoros: firebase.firestore.FieldValue.increment(1),
+                });
+            }
+            return [remainingTime - totalElapsedTime > 0];
+          }}
+        >
+          {({ elapsedTime }) =>
+            renderTime("seconds", getTimeSeconds(elapsedTime))
+          }
+        </CountdownCircleTimer>
+      </TimersWrapper>
       <button
         onClick={() => {
           setSecondsKey((prevKey) => prevKey + 1);
