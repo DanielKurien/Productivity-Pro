@@ -8,7 +8,7 @@ export const HomeNavWrapper = styled.nav`
   padding: 0.5rem;
   background-color: #3e4671;
   height: 7vh;
-  border-bottom: 0.2rem solid #525f88; ;
+  border-bottom: 0.2rem solid #525f88;
 `;
 
 export const HomeNavBtn = styled.button`
