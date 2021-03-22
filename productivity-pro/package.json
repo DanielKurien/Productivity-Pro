@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.7.3",
     "antd": "^4.14.0",
     "firebase": "^8.2.9",
+    "howler": "^2.2.1",
     "react": "^17.0.1",
     "react-countdown-circle-timer": "^2.5.0",
     "react-datepicker": "^3.6.0",

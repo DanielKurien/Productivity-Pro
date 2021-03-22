@@ -10,12 +10,12 @@ export const TodoSectionWrapper = styled.div`
   margin-bottom: 8rem;
   flex: 1.5;
   padding: 1rem;
-  max-height: 60%;
+  height: 83%;
 `;
 
 export const TodoMainWrapper = styled.div`
   width: 100%;
-  max-height: 70%;
+  height: 80%;
   background-color: #364067;
   overflow: hidden;
   overflow-y: scroll;

@@ -11,7 +11,7 @@ export const CountdownTimerWrapper = styled.div`
   flex: 1.5;
   text-transform: capitalize;
   text-align: center;
-  justify-content: space-ebetween;
+  justify-content: space-between;
   flex-direction: column;
   padding: 0.5rem;
 `;
@@ -23,13 +23,14 @@ export const TimersWrapper = styled.div`
 
 export const TimerControl = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
 `;
 
 export const TimerText = styled.p`
   color: #d7dbf1;
+  font-size: 1.2rem;
   font-family: "Noto Sans JP", sans-serif;
 `;
 export const RestartButton = styled.button`
@@ -65,7 +66,7 @@ export const StartStopButton = styled.button`
 `;
 
 export const ButtonsWrapper = styled.div`
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   display: flex;
   justify-content: space-evenly;
 `;

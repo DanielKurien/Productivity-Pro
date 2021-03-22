@@ -8,7 +8,7 @@ export const Input = styled.input`
   top: -9999px;
 
   &:checked + span {
-    background-color: #5cdb95;
+    background-color: #482ff7;
 
     &:before {
       left: 27px;
@@ -23,7 +23,7 @@ export const Slider = styled.span`
     height:1.5rem;
     border:1px solid white;
     border-radius:6rem;
-    background-color:#525f88;
+    background-color:#ee5a5a;
     position:relative;
     transition:background-color:0.2s;
 
