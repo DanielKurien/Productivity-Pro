@@ -1,9 +1,15 @@
 import React from "react";
-import { StatTrackerWrapper } from "./StatTrackerElements";
+import {
+  StatTrackerWrapper,
+  StatMainWrapper,
+  StatHeading,
+} from "./StatTrackerElements";
 const StatTracker = () => {
   return (
     <StatTrackerWrapper>
-      <h1>Hello world</h1>
+      <StatMainWrapper>
+        <StatHeading>Stat Tracker</StatHeading>
+      </StatMainWrapper>
     </StatTrackerWrapper>
   );
 };

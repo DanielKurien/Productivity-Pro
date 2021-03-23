@@ -5,29 +5,85 @@ import "./EventCalendar";
 import { TodosContext } from ".././context/TodosContext";
 import styled from "styled-components";
 
+const CalendarWrapper = styled.div`
+  box-sizing: border-box;
+  max-height: 90%;
+  flex: 2.8;
+`;
+//fc-daygrid-block-event fc-h-event fc-event fc-event-start fc-event-end fc-event-past
 const EventCalendarWrapper = styled.div`
+
+  .fc-event-title-container{
+    background-color:#525f88;
+
+  }
+  .fc-col-header-cell-cushion{
+    color:#d7dbf1;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.9rem;
+  }
+  
+  .fc-daygrid-block-event{
+    background-color:#525f88;
+    border:1px solid white;
+    color:#d7dbf1;
+    font-size:0.7rem;
+    font-family:"Noto Sans JP", sans-serif;
+  }
+ 
+  .fc-scrollgrid-sync-inner {
+    background-color:#3e4671;
+  }
+  
+  .fc-scrollgrid{
+    border-radius:0.2rem;
+    border:0.13rem solid white;
+  }
+  }.fc-button {
+    background-color: #525f88;
+    border-radius: 0.3rem;
+    font-family: "Noto Sans JP", sans-serif;
+    text-transform: capitalize;
+  }
+
+  .fc-toolbar-title {
+    font-family: "Dosis";
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #5cdb95;
+  }
+  .fc-daygrid-day-number {
+    font-size: 0.9rem;
+    color: #d7dbf1;
+    font-family: "Noto Sans JP", sans-serif;
+  }
   .fc {
-    border-color: green;
-    background-color: pink;
-    height: 100%;
-    flex: 1.5;
+    padding: 0.4rem 0.5rem;
+    margin: 0.5rem 0.5rem;
+    border: 0.2rem solid #525f88;
+    border-radius: 1rem;
+    background-color: #364067;
+    width: 34rem;
+    height: 22rem;
   }
 `;
 const EventCalendar = () => {
   const { todos } = useContext(TodosContext);
   return (
-    <EventCalendarWrapper>
-      <FullCalendar
-        plugins={[dayGridPlugin]}
-        initialView="dayGridDay"
-        events={[...todos]}
-        headerToolbar={{
-          left: "prev,next",
-          center: "title",
-          right: "dayGridDay,dayGridWeek,dayGridMonth",
-        }}
-      />
-    </EventCalendarWrapper>
+    <CalendarWrapper>
+      <EventCalendarWrapper>
+        <FullCalendar
+          plugins={[dayGridPlugin]}
+          initialView="dayGridDay"
+          events={[...todos]}
+          headerToolbar={{
+            left: "prev,next",
+            center: "title",
+            right: "dayGridDay,dayGridWeek,dayGridMonth",
+          }}
+        />
+      </EventCalendarWrapper>
+    </CalendarWrapper>
   );
 };
 

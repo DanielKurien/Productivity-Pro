@@ -1,10 +1,10 @@
 import React from "react";
 import { auth } from "../../services/firebase";
-import { HomeNavWrapper, HomeNavBtn, HomeNavHeader } from "./HomeNavElements";
+import { HomeNavWrapper, HomeNavBtn, HomeNavHeading } from "./HomeNavElements";
 const HomeNav = () => {
   return (
     <HomeNavWrapper>
-      <HomeNavHeader>Home</HomeNavHeader>
+      <HomeNavHeading>Home</HomeNavHeading>
       <HomeNavBtn
         onClick={() => {
           auth.signOut();

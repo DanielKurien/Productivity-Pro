@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { db } from "../../services/firebase";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../../context/TodosContext";
+import { ChillContext } from "../../context/ChillContext";
 import EventCalendar from "../../components/EventCalendar";
 import CountdownTimer from "../../components/Countdown/CountdownTimer";
 import TodoSection from "../../components/TodoSection/TodoSection";
@@ -22,6 +23,7 @@ const Home = () => {
   //state and context needed for form and db functions
   const { currentUser } = useContext(AuthContext);
   const [todos, setTodos] = useState([]);
+  const [chill, setChill] = useState(false);
 
   //fetching users current todos from database
   const fetchTodos = () => {
@@ -41,21 +43,23 @@ const Home = () => {
   return (
     <HomeContainer>
       <HomeNav />
-      <TodosContext.Provider value={{ todos, setTodos }}>
-        <HomeFlexbox>
-          <HomeLeftColumnWrapper>
+      <HomeFlexbox>
+        <HomeLeftColumnWrapper>
+          <ChillContext.Provider value={{ chill, setChill }}>
             <CountdownTimer />
             <SpotifyFunctionality />
-          </HomeLeftColumnWrapper>
-          <HomeRightColumnWrapper>
-            <RightTop>
+          </ChillContext.Provider>
+        </HomeLeftColumnWrapper>
+        <HomeRightColumnWrapper>
+          <RightTop>
+            <TodosContext.Provider value={{ todos, setTodos }}>
               <TodoSection />
               <EventCalendar />
-            </RightTop>
-            <StatTracker />
-          </HomeRightColumnWrapper>
-        </HomeFlexbox>
-      </TodosContext.Provider>
+            </TodosContext.Provider>
+          </RightTop>
+          <StatTracker />
+        </HomeRightColumnWrapper>
+      </HomeFlexbox>
     </HomeContainer>
   );
 };

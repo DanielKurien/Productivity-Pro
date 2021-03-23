@@ -8,13 +8,13 @@ export const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5cdb95;
+  background-color: #3e4671;
   color: white;
 `;
 
 export const LoginForm = styled.form`
   display: flex;
-  background-color: #05386b;
+  background-color: #364067;
   align-items: center;
   justify-content: space-between;
   border-radius: 4px;
@@ -27,7 +27,7 @@ export const LoginHeading = styled.h1`
   font-family: "Dosis", sans-serif;
   color: #5cdb95;
   font-size: 1.5rem;
-  background-color: #05386b;
+  background-color: #364067;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   padding: 0.5rem;
@@ -56,7 +56,7 @@ export const LoginPasswordWrapper = styled.div`
 `;
 
 export const LoginInput = styled.input`
-  background-color: #05386b;
+  background-color: #364067;
   color: #5cdb95;
   border: none;
   font-family: "Noto Sans JP", sans-serif;
@@ -80,14 +80,14 @@ export const LoginButton = styled.button`
   background-color: #5cdb95;
   border-radius: 25px;
   border: white;
-  color: #05386b;
+  color: #364067;
   font-family: "Noto Sans JP", sans-serif;
   padding: 0.5rem;
   font-size: 1rem;
   outline: none;
 
   &:hover {
-    background-color: #05386b;
+    background-color: #364067;
     color: #5cdb95;
     border: 1px solid white;
   }
