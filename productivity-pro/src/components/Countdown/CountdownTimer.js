@@ -16,7 +16,7 @@ import {
   TimerText,
 } from "./CountdownTimerElements";
 import Toggle from "../Toggle/Toggle";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 
 const minuteSeconds = 60;
 const hourSeconds = 3600;

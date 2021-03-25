@@ -13,7 +13,6 @@ const TodoForm = () => {
   const { todos, setTodos } = useContext(TodosContext);
   const [newTodo, setNewTodo] = useState("");
   const [newDate, setNewDate] = useState(null);
-
   //function for adding a new todo
   const handleNewTodo = async (event) => {
     event.preventDefault();
@@ -40,7 +39,7 @@ const TodoForm = () => {
       await db
         .collection("users")
         .doc(currentUser.uid)
-        .set({
+        .update({
           todos: [...todos, todoObject],
         });
     } catch (err) {

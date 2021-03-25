@@ -17,7 +17,8 @@ export const LoginForm = styled.form`
   background-color: #364067;
   align-items: center;
   justify-content: space-between;
-  border-radius: 4px;
+  border: 0.2rem solid #525f88;
+  border-radius: 0.5rem;
   height: 30vh;
   padding: 3rem;
   flex-direction: column;
