@@ -28,8 +28,10 @@ const SignUp = ({ history }) => {
         localStorage.setItem("user", cred.user.email);
         db.collection("users").doc(cred.user.uid).set({
           todos: [],
+          friends: [],
         });
         db.collection("emails").doc(cred.user.email).set({
+          email: cred.user.email,
           todosCompleted: 0,
           pomodoros: 0,
         });

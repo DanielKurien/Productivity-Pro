@@ -15,9 +15,10 @@ export const SignUpWrapper = styled.div`
 export const SignUpForm = styled.form`
   display: flex;
   background-color: #364067;
+  border: 0.2rem solid #525f88;
   align-items: center;
   justify-content: space-between;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   height: 30vh;
   padding: 3rem;
   flex-direction: column;

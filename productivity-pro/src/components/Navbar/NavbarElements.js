@@ -39,6 +39,7 @@ export const NavLink = styled(Link)`
   font-family: "Noto Sans JP", sans-serif;
   margin: 1rem;
   font-size: 1.1rem;
+  border: 0.2rem solid #364067;
   background-color: #525f88;
   border-radius: 25px;
   color: #d7dbf1;

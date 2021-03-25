@@ -4,6 +4,7 @@ import { db } from "../../services/firebase";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../../context/TodosContext";
 import { ChillContext } from "../../context/ChillContext";
+import { FriendsContext } from "../../context/FriendsContext";
 import EventCalendar from "../../components/EventCalendar";
 import CountdownTimer from "../../components/Countdown/CountdownTimer";
 import TodoSection from "../../components/TodoSection/TodoSection";
@@ -24,19 +25,21 @@ const Home = () => {
   const { currentUser } = useContext(AuthContext);
   const [todos, setTodos] = useState([]);
   const [chill, setChill] = useState(false);
+  const [friends, setFriends] = useState([]);
 
   //fetching users current todos from database
-  const fetchTodos = () => {
+  const fetchTodosAndFriends = () => {
     db.collection("users")
       .doc(currentUser.uid)
       .get()
       .then((doc) => {
         setTodos(doc.data().todos);
+        setFriends(doc.data().friends);
       });
   };
 
   useEffect(() => {
-    fetchTodos();
+    fetchTodosAndFriends();
     //eslint-disable-next-line
   }, []);
 
@@ -51,13 +54,15 @@ const Home = () => {
           </ChillContext.Provider>
         </HomeLeftColumnWrapper>
         <HomeRightColumnWrapper>
-          <RightTop>
-            <TodosContext.Provider value={{ todos, setTodos }}>
-              <TodoSection />
-              <EventCalendar />
-            </TodosContext.Provider>
-          </RightTop>
-          <StatTracker />
+          <TodosContext.Provider value={{ todos, setTodos }}>
+            <FriendsContext.Provider value={{ friends, setFriends }}>
+              <RightTop>
+                <TodoSection />
+                <EventCalendar />
+              </RightTop>
+              <StatTracker />
+            </FriendsContext.Provider>
+          </TodosContext.Provider>
         </HomeRightColumnWrapper>
       </HomeFlexbox>
     </HomeContainer>
