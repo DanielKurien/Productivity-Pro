@@ -6,9 +6,9 @@ export const HomeNavWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
-  background-color: #3e4671;
+  background-color: #2d333b;
   height: 7vh;
-  border-bottom: 0.2rem solid #525f88;
+  border-bottom: 0.2rem solid #373e47;
 `;
 
 export const HomeNavBtn = styled.button`
@@ -16,11 +16,11 @@ export const HomeNavBtn = styled.button`
   font-family: "Noto Sans JP", sans-serif;
   margin: 1rem;
   font-size: 1rem;
-  background-color: #525f88;
+  background-color: #373e47;
   border-radius: 0.6rem;
-  color: #d7dbf1;
+  color: #cdd9e5;
   padding: 0.1rem 0.5rem;
-  border: 0.2rem solid #364067;
+  border: 0.2rem solid #22272e;
 
   &:hover {
     color: #5cdb95;
@@ -31,8 +31,8 @@ export const HomeNavHeading = styled.h1`
   font-family: "Dosis", sans-serif;
   color: #5cdb95;
   font-size: 1rem;
-  background-color: #525f88;
-  border: 0.2rem solid #364067;
+  background-color: #373e47;
+  border: 0.2rem solid #22272e;
   border-radius: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;

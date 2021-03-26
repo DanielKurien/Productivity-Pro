@@ -14,25 +14,25 @@ const CalendarWrapper = styled.div`
 const EventCalendarWrapper = styled.div`
 
   .fc-event-title-container{
-    background-color:#525f88;
+    background-color:#373e47;
 
   }
   .fc-col-header-cell-cushion{
-    color:#d7dbf1;
+    color:#cdd9e5;
     font-family:"Noto Sans JP", sans-serif;
     font-size:0.9rem;
   }
   
   .fc-daygrid-block-event{
-    background-color:#525f88;
+    background-color:#373e47;
     border:1px solid white;
-    color:#d7dbf1;
+    color:#cdd9e5;
     font-size:0.7rem;
     font-family:"Noto Sans JP", sans-serif;
   }
  
   .fc-scrollgrid-sync-inner {
-    background-color:#3e4671;
+    background-color:#2d333b;
   }
   
   .fc-scrollgrid{
@@ -40,7 +40,7 @@ const EventCalendarWrapper = styled.div`
     border:0.13rem solid white;
   }
   }.fc-button {
-    background-color: #525f88;
+    background-color: #373e47;
     border-radius: 0.3rem;
     font-family: "Noto Sans JP", sans-serif;
     text-transform: capitalize;
@@ -54,15 +54,15 @@ const EventCalendarWrapper = styled.div`
   }
   .fc-daygrid-day-number {
     font-size: 0.9rem;
-    color: #d7dbf1;
+    color: #cdd9e5;
     font-family: "Noto Sans JP", sans-serif;
   }
   .fc {
     padding: 0.4rem 0.5rem;
     margin: 0.5rem 0.5rem;
-    border: 0.2rem solid #525f88;
+    border: 0.2rem solid #373e47;
     border-radius: 1rem;
-    background-color: #364067;
+    background-color: #22272e;
     width: 34rem;
     height: 22rem;
   }

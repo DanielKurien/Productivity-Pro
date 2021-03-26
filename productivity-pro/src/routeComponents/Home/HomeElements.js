@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.div`
   max-height: 100vh;
-  background-color: #3e4671;
+  background-color: #2d333b;
 `;
 
 export const HomeFlexbox = styled.div`

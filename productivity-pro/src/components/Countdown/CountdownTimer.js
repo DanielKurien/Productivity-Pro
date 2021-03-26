@@ -75,7 +75,7 @@ const CountdownTimer = () => {
         <TimersWrapper>
           <CountdownCircleTimer
             {...timerProps}
-            colors={[["#482ff7"]]}
+            colors={[["#9294e3"]]}
             key={minutesKey}
             duration={hourSeconds}
             initialRemainingTime={chillRemainingTime % hourSeconds}
@@ -89,7 +89,7 @@ const CountdownTimer = () => {
           </CountdownCircleTimer>
           <CountdownCircleTimer
             {...timerProps}
-            colors={[["#482ff7"]]}
+            colors={[["#9294e3"]]}
             key={secondsKey}
             duration={minuteSeconds}
             initialRemainingTime={chillRemainingTime % minuteSeconds}
@@ -110,7 +110,7 @@ const CountdownTimer = () => {
         <TimersWrapper>
           <CountdownCircleTimer
             {...timerProps}
-            colors={[["#ee5a5a"]]}
+            colors={[["#d87463"]]}
             key={minutesKey}
             duration={hourSeconds}
             initialRemainingTime={workRemainingTime % hourSeconds}
@@ -124,7 +124,7 @@ const CountdownTimer = () => {
           </CountdownCircleTimer>
           <CountdownCircleTimer
             {...timerProps}
-            colors={[["#ee5a5a"]]}
+            colors={[["#d87463"]]}
             key={secondsKey}
             duration={minuteSeconds}
             initialRemainingTime={workRemainingTime % minuteSeconds}

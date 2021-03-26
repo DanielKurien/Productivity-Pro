@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CountdownTimerWrapper = styled.div`
   display: flex;
-  background-color: #364067;
+  background-color: #22272e;
   border-radius: 1rem;
-  border: 0.2rem solid #525f88;
+  border: 0.2rem solid #373e47;
   margin: 1rem;
   font-family: "Noto Sans JP", sans-serif;
   height: 100%;
@@ -29,7 +29,7 @@ export const TimerControl = styled.div`
 `;
 
 export const TimerText = styled.p`
-  color: #d7dbf1;
+  color: #cdd9e5;
   font-size: 1.2rem;
   font-family: "Noto Sans JP", sans-serif;
 `;
@@ -39,9 +39,9 @@ export const RestartButton = styled.button`
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.1rem;
   border:0.1rem solid white;
-  background-color: #525f88;
+  background-color: #373e47;
   border-radius: 1rem;
-  color: #d7dbf1;
+  color: #cdd9e5;
   width:10rem;
   height:2rem;
 
@@ -54,10 +54,10 @@ export const StartStopButton = styled.button`
   text-decoration: none;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.1rem;
-  background-color: #525f88;
+  background-color: #373e47;
   border-radius: 1rem;
   border:0.1rem solid white;
-  color: #d7dbf1;
+  color: #cdd9e5;
   width:10rem;
   height:2rem;
 
