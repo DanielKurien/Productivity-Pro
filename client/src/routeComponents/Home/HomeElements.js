@@ -5,11 +5,14 @@ export const HomeContainer = styled.div`
   max-width: 100vw;
   height: 100vh;
   background-color: #2d333b;
-
+  overflow-x: hidden;
   @media only screen and (max-width: 1050px) {
     height: 150vh;
   }
 
+  @media only screen and (max-width: 600px) {
+    height: 200vh;
+  }
   @media only screen and (max-width: 600px) {
     height: 250vh;
   }
@@ -17,10 +20,14 @@ export const HomeContainer = styled.div`
 
 export const HomeFlexbox = styled.div`
   height: 95vh;
+
   display: flex;
   @media only screen and (max-width: 1050px) {
     height: 145vh;
     flex-direction: column;
+  }
+  @media only screen and (max-width: 900px) {
+    height: 195vh;
   }
 
   @media only screen and (max-width: 600px) {
@@ -55,10 +62,13 @@ export const HomeRight = styled.div`
     flex-direction: row;
   }
 
-  @media only screen and (max-width: 750px) {
-    flex: 1;
+  @media only screen and (max-width: 900px) {
+    flex: 2;
+    flex-direction: column;
   }
+
   @media only screen and (max-width: 600px) {
+    flex: 1;
     flex-direction: column;
   }
 `;

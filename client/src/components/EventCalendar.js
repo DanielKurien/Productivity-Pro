@@ -13,6 +13,13 @@ const CalendarWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+
+  @media only screen and (max-width: 900px) {
+    flex: 1.4;
+  }
+  @media only screen and (max-width: 600px) {
+    flex: 1;
+  }
 `;
 const EventCalendarWrapper = styled.div`
 
@@ -60,6 +67,9 @@ const EventCalendarWrapper = styled.div`
     letter-spacing: 0.1rem;
     color: #5cdb95;
     font-size:1.3rem;
+    @media only screen and (max-width: 1300px) {
+      font-size: 1rem;
+    }
   }
   .fc-daygrid-day-number {
     font-size: 0.9rem;
@@ -71,8 +81,16 @@ const EventCalendarWrapper = styled.div`
     border: 0.2rem solid #373e47;
     border-radius: 1rem;
     background-color: #22272e;
-    height:60vh;
+    height:55vh;
     padding:1rem;
+    
+    @media only screen and (max-width: 900px) {
+      height:60vh;
+    }
+
+    @media only screen and (max-width: 600px) {
+      height:55vh;
+    }
   }
 `;
 const EventCalendar = () => {

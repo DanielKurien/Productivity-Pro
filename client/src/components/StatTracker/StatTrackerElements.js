@@ -1,20 +1,27 @@
 import styled from "styled-components";
 
 export const StatTrackerWrapper = styled.div`
-  background-color: #22272e;
-  border: 0.2rem solid #373e47;
-  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #2d333b;
   flex: 1.4;
 
   @media only screen and (max-width: 940px) {
     flex: 1;
   }
-  @media only screen and (max-width: 750px) {
-    flex: 1.3;
-  }
 `;
 
-export const StatMainWrapper = styled.div``;
+export const StatMainWrapper = styled.div`
+  background-color: #22272e;
+  box-sizing: border-box;
+  border: 0.2rem solid #373e47;
+  border-radius: 1rem;
+  background-color: #22272e;
+  padding: 1rem;
+  width: 98%;
+  height: 97%;
+`;
 
 export const StatHeading = styled.div`
   font-family: "Dosis";
