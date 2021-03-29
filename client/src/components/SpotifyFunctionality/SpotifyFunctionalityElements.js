@@ -3,10 +3,8 @@ import styled from "styled-components";
 export const SpotifyFunctionalityWrapper = styled.div`
   background-color: #2d333b;
   box-sizing: border-box;
-  height: 100%;
-
+  height: 67.5%;
   flex: 1.8;
-  margin: 0.4rem 1rem;
   font-family: "Noto Sans JP";
 `;
 

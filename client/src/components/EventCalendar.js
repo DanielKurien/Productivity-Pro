@@ -5,11 +5,6 @@ import "./EventCalendar";
 import { TodosContext } from ".././context/TodosContext";
 import styled from "styled-components";
 
-const CalendarWrapper = styled.div`
-  box-sizing: border-box;
-  max-height: 90%;
-  flex: 2.8;
-`;
 //fc-daygrid-block-event fc-h-event fc-event fc-event-start fc-event-end fc-event-past
 const EventCalendarWrapper = styled.div`
 
@@ -58,32 +53,29 @@ const EventCalendarWrapper = styled.div`
     font-family: "Noto Sans JP", sans-serif;
   }
   .fc {
-    padding: 0.4rem 0.5rem;
-    margin: 0.5rem 0.5rem;
     border: 0.2rem solid #373e47;
     border-radius: 1rem;
     background-color: #22272e;
-    width: 34rem;
-    height: 22rem;
+  }
+  @media only screen and (max-width: 940px) {
+    flex: 1;
   }
 `;
 const EventCalendar = () => {
   const { todos } = useContext(TodosContext);
   return (
-    <CalendarWrapper>
-      <EventCalendarWrapper>
-        <FullCalendar
-          plugins={[dayGridPlugin]}
-          initialView="dayGridDay"
-          events={[...todos]}
-          headerToolbar={{
-            left: "prev,next",
-            center: "title",
-            right: "dayGridDay,dayGridWeek,dayGridMonth",
-          }}
-        />
-      </EventCalendarWrapper>
-    </CalendarWrapper>
+    <EventCalendarWrapper>
+      <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView="dayGridDay"
+        events={[...todos]}
+        headerToolbar={{
+          left: "prev,next",
+          center: "title",
+          right: "dayGridDay,dayGridWeek,dayGridMonth",
+        }}
+      />
+    </EventCalendarWrapper>
   );
 };
 

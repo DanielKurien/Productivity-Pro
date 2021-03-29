@@ -58,7 +58,7 @@ const CountdownTimer = () => {
 
   return (
     <CountdownTimerWrapper>
-      <TimerHeading>Pomodoro Timer</TimerHeading>
+      {/* <TimerHeading>Pomodoro Timer</TimerHeading>
       <TimerControl>
         <Toggle
           onChange={(event) => {
@@ -170,7 +170,7 @@ const CountdownTimer = () => {
         >
           {timerButtonDesc}
         </StartStopButton>
-      </ButtonsWrapper>
+      </ButtonsWrapper> */}
     </CountdownTimerWrapper>
   );
 };

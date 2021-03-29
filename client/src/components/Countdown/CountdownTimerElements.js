@@ -5,15 +5,13 @@ export const CountdownTimerWrapper = styled.div`
   background-color: #22272e;
   border-radius: 1rem;
   border: 0.2rem solid #373e47;
-  margin: 1rem;
   font-family: "Noto Sans JP", sans-serif;
-  height: 100%;
-  flex: 1.5;
+  height: 30%;
+  flex: 1.3;
   text-transform: capitalize;
   text-align: center;
   justify-content: space-between;
   flex-direction: column;
-  padding: 0.5rem;
 `;
 
 export const TimersWrapper = styled.div`

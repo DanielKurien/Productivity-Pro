@@ -1,21 +1,20 @@
 import styled from "styled-components";
 
 export const StatTrackerWrapper = styled.div`
-  background-color: #2d333b;
-  box-sizing: border-box;
-  height: 100%;
-  flex: 2.2;
-`;
-
-export const StatMainWrapper = styled.div`
   background-color: #22272e;
-  height: 90%;
-  padding: 0.3rem;
-  margin-left: 0.7rem;
-  margin-right: 0.5rem;
   border: 0.2rem solid #373e47;
   border-radius: 1rem;
+  flex: 1.4;
+
+  @media only screen and (max-width: 940px) {
+    flex: 1;
+  }
+  @media only screen and (max-width: 750px) {
+    flex: 1.3;
+  }
 `;
+
+export const StatMainWrapper = styled.div``;
 
 export const StatHeading = styled.div`
   font-family: "Dosis";
