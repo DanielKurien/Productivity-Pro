@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import {
   StatTrackerWrapper,
@@ -8,10 +8,6 @@ import {
   AddFriendButton,
   AddFriendInput,
   AddFriendForm,
-  StatTrackerTable,
-  StatTableItem,
-  StatTableHeading,
-  StatTableRow,
 } from "./StatTrackerElements";
 import { AuthContext } from "../.././context/Auth";
 import { FriendsContext } from "../../context/FriendsContext";

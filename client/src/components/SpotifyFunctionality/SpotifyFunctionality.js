@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   SpotifyFunctionalityWrapper,
   SpotifyMainWrapper,
 } from "./SpotifyFunctionalityElements";
-import SpotifyPlayer from "react-spotify-web-playback";
+
 import SpotifyLogin from "../SpotifyLogin/SpotifyLogin";
+import Dashboard from "../Dashboard/Dashboard";
+
+const code = new URLSearchParams(window.location.search).get("code");
 
 const SpotifyFunctionality = () => {
   return (
     <SpotifyFunctionalityWrapper>
       <SpotifyMainWrapper>
-        <SpotifyLogin />
+        {code ? <Dashboard code={code} /> : <SpotifyLogin />}
       </SpotifyMainWrapper>
     </SpotifyFunctionalityWrapper>
   );
