@@ -10,6 +10,10 @@ export const LoginWrapper = styled.div`
   justify-content: center;
   background-color: #2d333b;
   color: white;
+
+  @media only screen and (max-width: 550px) {
+    background-color: #22272e;
+  }
 `;
 
 export const LoginForm = styled.form`
@@ -22,6 +26,20 @@ export const LoginForm = styled.form`
   height: 30vh;
   padding: 3rem;
   flex-direction: column;
+
+  @media only screen and (max-width: 550px) {
+    height: 15vh;
+    width: 40vh;
+    border: none;
+  }
+
+  @media only screen and (max-width: 550px) {
+    width: 30vh;
+  }
+
+  @media only screen and (max-width: 430px) {
+    width: 20vh;
+  }
 `;
 
 export const LoginHeading = styled.h1`
@@ -37,6 +55,14 @@ export const LoginHeading = styled.h1`
   padding: 0rem;
   font-size: 2rem;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 430px) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 325px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const LoginEmailWrapper = styled.div`
@@ -65,6 +91,14 @@ export const LoginInput = styled.input`
   height: 2rem;
   font-size: 1.5rem;
   padding: 0.6rem 1rem;
+
+  @media only screen and (max-width: 430px) {
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 1rem;
+  }
 `;
 
 export const LoginEmailIcon = styled(AiOutlineMail)`
@@ -91,5 +125,9 @@ export const LoginButton = styled.button`
     background-color: #22272e;
     color: #5cdb95;
     border: 1px solid white;
+  }
+
+  @media only screen and (max-width: 450px) {
+    font-size: 0.8rem;
   }
 `;
