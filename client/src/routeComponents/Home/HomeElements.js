@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HomeContainer = styled.div`
   margin: 0;
+  max-width: 100vw;
   height: 100vh;
   background-color: #2d333b;
 
