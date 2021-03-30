@@ -7,10 +7,12 @@ import firebase from "firebase/app";
 import chime from "../../sounds/chime.mp3";
 import {
   CountdownTimerWrapper,
+  CountdownTimerMain,
   TimersWrapper,
   RestartButton,
   StartStopButton,
   ButtonsWrapper,
+  TimerCheck,
   TimerHeading,
   TimerControl,
   TimerText,
@@ -48,7 +50,7 @@ const CountdownTimer = () => {
 
   const timerProps = {
     isPlaying: playing,
-    size: 120,
+    size: 100,
     strokeWidth: 6,
   };
 
@@ -58,119 +60,135 @@ const CountdownTimer = () => {
 
   return (
     <CountdownTimerWrapper>
-      {/* <TimerHeading>Pomodoro Timer</TimerHeading>
-      <TimerControl>
-        <Toggle
-          onChange={(event) => {
-            setChill(event.target.checked);
-            setSecondsKey((prevKey) => prevKey + 1);
-            setMinutesKey((prevKey) => prevKey + 1);
-            setTimerButtonDesc("Start");
-            setPlaying(false);
-          }}
-        />
-        <TimerText>{chill ? "Chill" : "Work"} Timer </TimerText>
-      </TimerControl>
-      {chill ? (
-        <TimersWrapper>
-          <CountdownCircleTimer
-            {...timerProps}
-            colors={[["#9294e3"]]}
-            key={minutesKey}
-            duration={hourSeconds}
-            initialRemainingTime={chillRemainingTime % hourSeconds}
-            onComplete={(totalElapsedTime) => {
-              return [chillRemainingTime - totalElapsedTime > minuteSeconds];
-            }}
-          >
-            {({ elapsedTime }) =>
-              renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
-            }
-          </CountdownCircleTimer>
-          <CountdownCircleTimer
-            {...timerProps}
-            colors={[["#9294e3"]]}
-            key={secondsKey}
-            duration={minuteSeconds}
-            initialRemainingTime={chillRemainingTime % minuteSeconds}
-            onComplete={(totalElapsedTime) => {
-              console.log(totalElapsedTime - chillRemainingTime);
-              if (totalElapsedTime - chillRemainingTime === 0) {
-                return false;
+      <CountdownTimerMain>
+        <TimerHeading>Pomodoro Timer</TimerHeading>
+        {chill ? (
+          <TimersWrapper>
+            <CountdownCircleTimer
+              {...timerProps}
+              colors={[["#9294e3"]]}
+              key={minutesKey}
+              duration={hourSeconds}
+              initialRemainingTime={chillRemainingTime % hourSeconds}
+              onComplete={(totalElapsedTime) => {
+                return [chillRemainingTime - totalElapsedTime > minuteSeconds];
+              }}
+            >
+              {({ elapsedTime }) =>
+                renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
               }
-              return [chillRemainingTime - totalElapsedTime > 0];
-            }}
-          >
-            {({ elapsedTime }) =>
-              renderTime("seconds", getTimeSeconds(elapsedTime))
-            }
-          </CountdownCircleTimer>
-        </TimersWrapper>
-      ) : (
-        <TimersWrapper>
-          <CountdownCircleTimer
-            {...timerProps}
-            colors={[["#d87463"]]}
-            key={minutesKey}
-            duration={hourSeconds}
-            initialRemainingTime={workRemainingTime % hourSeconds}
-            onComplete={(totalElapsedTime) => {
-              return [workRemainingTime - totalElapsedTime > minuteSeconds];
-            }}
-          >
-            {({ elapsedTime }) =>
-              renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
-            }
-          </CountdownCircleTimer>
-          <CountdownCircleTimer
-            {...timerProps}
-            colors={[["#d87463"]]}
-            key={secondsKey}
-            duration={minuteSeconds}
-            initialRemainingTime={workRemainingTime % minuteSeconds}
-            onComplete={(totalElapsedTime) => {
-              if (totalElapsedTime - workRemainingTime === 0) {
-                db.collection("emails")
-                  .doc(currentUser.email)
-                  .update({
-                    pomodoros: firebase.firestore.FieldValue.increment(1),
-                  });
+            </CountdownCircleTimer>
+            <TimerControl>
+              <Toggle
+                onChange={(event) => {
+                  setChill(event.target.checked);
+                  setSecondsKey((prevKey) => prevKey + 1);
+                  setMinutesKey((prevKey) => prevKey + 1);
+                  setTimerButtonDesc("Start");
+                  setPlaying(false);
+                }}
+              />
+              <TimerText>{chill ? "Chill" : "Work"} Timer </TimerText>
+            </TimerControl>
+            <CountdownCircleTimer
+              {...timerProps}
+              colors={[["#9294e3"]]}
+              key={secondsKey}
+              duration={minuteSeconds}
+              initialRemainingTime={chillRemainingTime % minuteSeconds}
+              onComplete={(totalElapsedTime) => {
+                console.log(totalElapsedTime - chillRemainingTime);
+                if (totalElapsedTime - chillRemainingTime === 0) {
+                  return false;
+                }
+                return [chillRemainingTime - totalElapsedTime > 0];
+              }}
+            >
+              {({ elapsedTime }) =>
+                renderTime("seconds", getTimeSeconds(elapsedTime))
+              }
+            </CountdownCircleTimer>
+          </TimersWrapper>
+        ) : (
+          <TimersWrapper>
+            <CountdownCircleTimer
+              {...timerProps}
+              colors={[["#d87463"]]}
+              key={minutesKey}
+              duration={hourSeconds}
+              initialRemainingTime={workRemainingTime % hourSeconds}
+              onComplete={(totalElapsedTime) => {
+                return [workRemainingTime - totalElapsedTime > minuteSeconds];
+              }}
+            >
+              {({ elapsedTime }) =>
+                renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
+              }
+            </CountdownCircleTimer>
+            <TimerControl>
+              <Toggle
+                onChange={(event) => {
+                  setChill(event.target.checked);
+                  setSecondsKey((prevKey) => prevKey + 1);
+                  setMinutesKey((prevKey) => prevKey + 1);
+                  setTimerButtonDesc("Start");
+                  setPlaying(false);
+                }}
+              />
+              <TimerText>{chill ? "Chill" : "Work"} Timer </TimerText>
+            </TimerControl>
+            <CountdownCircleTimer
+              {...timerProps}
+              colors={[["#d87463"]]}
+              key={secondsKey}
+              duration={minuteSeconds}
+              initialRemainingTime={workRemainingTime % minuteSeconds}
+              onComplete={(totalElapsedTime) => {
+                if (totalElapsedTime - workRemainingTime === 0) {
+                  db.collection("emails")
+                    .doc(currentUser.email)
+                    .update({
+                      pomodoros: firebase.firestore.FieldValue.increment(1),
+                    });
 
-                sound.play();
+                  sound.play();
+                }
+                return [workRemainingTime - totalElapsedTime > 0];
+              }}
+            >
+              {({ elapsedTime }) =>
+                renderTime("seconds", getTimeSeconds(elapsedTime))
               }
-              return [workRemainingTime - totalElapsedTime > 0];
+            </CountdownCircleTimer>
+          </TimersWrapper>
+        )}
+        <ButtonsWrapper>
+          <RestartButton
+            onClick={() => {
+              setSecondsKey((prevKey) => prevKey + 1);
+              setMinutesKey((prevKey) => prevKey + 1);
+              setPlaying(false);
+              setTimerButtonDesc("Start");
             }}
           >
-            {({ elapsedTime }) =>
-              renderTime("seconds", getTimeSeconds(elapsedTime))
-            }
-          </CountdownCircleTimer>
-        </TimersWrapper>
-      )}
-      <ButtonsWrapper>
-        <RestartButton
-          onClick={() => {
-            setSecondsKey((prevKey) => prevKey + 1);
-            setMinutesKey((prevKey) => prevKey + 1);
-            setPlaying(false);
-            setTimerButtonDesc("Start");
-          }}
-        >
-          Restart Timer
-        </RestartButton>
-        <StartStopButton
-          onClick={() => {
-            if (timerButtonDesc === "Start") {
-              setTimerButtonDesc("Stop");
-            } else {
-              setTimerButtonDesc("Start");
-            }
-            setPlaying(!playing);
-          }}
-        >
-          {timerButtonDesc}
-        </StartStopButton>
-      </ButtonsWrapper> */}
+            Restart Timer
+          </RestartButton>
+          <TimerCheck />
+
+          <StartStopButton
+            onClick={() => {
+              if (timerButtonDesc === "Start") {
+                setTimerButtonDesc("Stop");
+              } else {
+                setTimerButtonDesc("Start");
+              }
+              setPlaying(!playing);
+            }}
+          >
+            {timerButtonDesc}
+          </StartStopButton>
+        </ButtonsWrapper>
+      </CountdownTimerMain>
     </CountdownTimerWrapper>
   );
 };
