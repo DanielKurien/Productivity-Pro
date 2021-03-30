@@ -5,12 +5,22 @@ import "./EventCalendar";
 import { TodosContext } from ".././context/TodosContext";
 import styled from "styled-components";
 
-const CalendarWrapper = styled.div`
-  box-sizing: border-box;
-  max-height: 90%;
-  flex: 2.8;
-`;
 //fc-daygrid-block-event fc-h-event fc-event fc-event-start fc-event-end fc-event-past
+const CalendarWrapper = styled.div`
+  flex: 1;
+  background-color: #2d333b;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+
+  @media only screen and (max-width: 900px) {
+    flex: 1.4;
+  }
+  @media only screen and (max-width: 600px) {
+    flex: 1;
+  }
+`;
 const EventCalendarWrapper = styled.div`
 
   .fc-event-title-container{
@@ -35,15 +45,20 @@ const EventCalendarWrapper = styled.div`
     background-color:#2d333b;
   }
   
+  fc-media-screen{
+    height:90%;
+  }
   .fc-scrollgrid{
     border-radius:0.2rem;
     border:0.13rem solid white;
+
   }
   }.fc-button {
     background-color: #373e47;
     border-radius: 0.3rem;
     font-family: "Noto Sans JP", sans-serif;
     text-transform: capitalize;
+    font-size:0.8rem;
   }
 
   .fc-toolbar-title {
@@ -51,6 +66,10 @@ const EventCalendarWrapper = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     color: #5cdb95;
+    font-size:1.3rem;
+    @media only screen and (max-width: 1300px) {
+      font-size: 1rem;
+    }
   }
   .fc-daygrid-day-number {
     font-size: 0.9rem;
@@ -58,13 +77,20 @@ const EventCalendarWrapper = styled.div`
     font-family: "Noto Sans JP", sans-serif;
   }
   .fc {
-    padding: 0.4rem 0.5rem;
-    margin: 0.5rem 0.5rem;
+    box-sizing: border-box;
     border: 0.2rem solid #373e47;
     border-radius: 1rem;
     background-color: #22272e;
-    width: 34rem;
-    height: 22rem;
+    height:55vh;
+    padding:1rem;
+    
+    @media only screen and (max-width: 900px) {
+      height:60vh;
+    }
+
+    @media only screen and (max-width: 600px) {
+      height:55vh;
+    }
   }
 `;
 const EventCalendar = () => {

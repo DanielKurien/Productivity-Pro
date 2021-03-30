@@ -8,12 +8,16 @@ export const Nav = styled.nav`
   border-bottom: 0.2rem solid #373e47;
   background-color: #2d333b;
   color: white;
-  min-height: 12vh;
+  height: 12vh;
   align-items: center;
   justify-content: space-between;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 670px) {
     padding: 0 1.5rem;
+  }
+
+  @media only screen and (max-width: 550px) {
+    padding: 0 0.5rem;
   }
 `;
 
@@ -27,6 +31,16 @@ export const NavLogo = styled.h1`
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   padding: 0.5rem;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.4rem;
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 0.85rem;
+  }
 `;
 
 export const NavLinks = styled.ul`
@@ -47,5 +61,22 @@ export const NavLink = styled(Link)`
 
   &:hover {
     color: #5cdb95;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    margin: 0 0.2rem;
   }
 `;

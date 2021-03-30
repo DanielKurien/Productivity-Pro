@@ -14,9 +14,9 @@ import StatTracker from "../../components/StatTracker/StatTracker";
 import {
   HomeContainer,
   HomeFlexbox,
-  HomeLeftColumnWrapper,
-  HomeRightColumnWrapper,
-  RightTop,
+  HomeLeft,
+  HomeLeftColumn,
+  HomeRight,
 } from "./HomeElements";
 // Home page  (Only visible when user is signed in and authenticated)
 
@@ -47,23 +47,23 @@ const Home = () => {
     <HomeContainer>
       <HomeNav />
       <HomeFlexbox>
-        <HomeLeftColumnWrapper>
-          <ChillContext.Provider value={{ chill, setChill }}>
-            <CountdownTimer />
-            <SpotifyFunctionality />
-          </ChillContext.Provider>
-        </HomeLeftColumnWrapper>
-        <HomeRightColumnWrapper>
-          <TodosContext.Provider value={{ todos, setTodos }}>
-            <FriendsContext.Provider value={{ friends, setFriends }}>
-              <RightTop>
+        <TodosContext.Provider value={{ todos, setTodos }}>
+          <FriendsContext.Provider value={{ friends, setFriends }}>
+            <HomeLeft>
+              <ChillContext.Provider value={{ chill, setChill }}>
+                <HomeLeftColumn>
+                  <CountdownTimer />
+                  <SpotifyFunctionality />
+                </HomeLeftColumn>
                 <TodoSection />
-                <EventCalendar />
-              </RightTop>
+              </ChillContext.Provider>
+            </HomeLeft>
+            <HomeRight>
+              <EventCalendar />
               <StatTracker />
-            </FriendsContext.Provider>
-          </TodosContext.Provider>
-        </HomeRightColumnWrapper>
+            </HomeRight>
+          </FriendsContext.Provider>
+        </TodosContext.Provider>
       </HomeFlexbox>
     </HomeContainer>
   );

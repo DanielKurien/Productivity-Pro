@@ -5,9 +5,9 @@ export const HomeNavWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.2rem;
   background-color: #2d333b;
-  height: 7vh;
+  height: 5vh;
   border-bottom: 0.2rem solid #373e47;
 `;
 
@@ -16,11 +16,10 @@ export const HomeNavBtn = styled.button`
   font-family: "Noto Sans JP", sans-serif;
   margin: 1rem;
   font-size: 1rem;
-  background-color: #373e47;
+  background-color: #2d333b;
   border-radius: 0.6rem;
   color: #cdd9e5;
-  padding: 0.1rem 0.5rem;
-  border: 0.2rem solid #22272e;
+  border: none;
 
   &:hover {
     color: #5cdb95;
@@ -36,5 +35,5 @@ export const HomeNavHeading = styled.h1`
   border-radius: 0.2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  padding: 0.25rem;
+  padding: 0 0.1rem;
 `;
