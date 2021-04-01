@@ -5,6 +5,7 @@ export const SpotifyFunctionalityWrapper = styled.div`
   box-sizing: border-box;
   height: 67.5%;
   flex: 1.8;
+  padding: 0.2rem 0.5rem;
   font-family: "Noto Sans JP";
 `;
 

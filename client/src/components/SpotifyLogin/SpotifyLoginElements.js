@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const SpotifyLink = styled.a`
-  background-color: #1db954;
-  background-color: #2d333b;
   text-decoration: none;
   font-size: 1.2rem;
   color: #5cdb95;

@@ -5,7 +5,6 @@ export const HomeContainer = styled.div`
   max-width: 100vw;
   height: 100vh;
   background-color: #2d333b;
-  overflow-x: hidden;
   @media only screen and (max-width: 1050px) {
     height: 150vh;
   }
@@ -20,6 +19,7 @@ export const HomeContainer = styled.div`
 
 export const HomeFlexbox = styled.div`
   height: 95vh;
+  overflow: hidden;
 
   display: flex;
   @media only screen and (max-width: 1050px) {

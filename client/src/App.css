@@ -3,3 +3,9 @@
   margin: 0;
   padding: 0;
 }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #808080;
+  opacity: 1; /* Firefox */
+}

@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from "react";
-import useAuthSpotify from "../../services/useAuthSpotify";
+import React, { useState, useEffect, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
+import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";
+import SeachItem from "../../components/SearchItem/SearchItem";
+import {
+  SearchItemsWrapper,
+  WorkSearchInput,
+  WorkSearchWrapper,
+} from "./SpotifyWorkSearchElements";
 
 const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
 const spotifyApi = new SpotifyWebApi({
@@ -8,9 +14,22 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 const SpotifyWorkSearch = ({ accessToken }) => {
+  const { workPlaylist } = useContext(SpotifyWorkContext);
+
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  console.log(searchResults);
+  const addSong = (trackUri) => {
+    const track = [];
+    track.push(trackUri);
+    spotifyApi
+      .addTracksToPlaylist(workPlaylist.id, track)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
@@ -47,14 +66,26 @@ const SpotifyWorkSearch = ({ accessToken }) => {
   }, [search, accessToken]);
 
   return (
-    <>
-      <input
+    <WorkSearchWrapper>
+      <WorkSearchInput
         type="text"
         value={search}
         placeholder="Search for song to add to Work Playlist"
         onChange={(e) => setSearch(e.target.value)}
       />
-    </>
+      <SearchItemsWrapper>
+        {searchResults.map((result) => (
+          <SeachItem
+            key={result.uri}
+            title={result.title}
+            uri={result.uri}
+            artist={result.artist}
+            album={result.albumUrl}
+            onClick={() => addSong(result.uri)}
+          />
+        ))}
+      </SearchItemsWrapper>
+    </WorkSearchWrapper>
   );
 };
 

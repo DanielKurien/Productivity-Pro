@@ -4,6 +4,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 import { ChillContext } from "../../context/ChillContext";
 import SpotifyChill from "../../components/SpotifyChill/SpotifyChill";
 import SpotifyWork from "../../components/SpotifyWork/SpotifyWork";
+import { DashboardWrapper } from "./DashboardElements";
 
 const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
 const spotifyApi = new SpotifyWebApi({
@@ -15,13 +16,14 @@ const Dashboard = ({ code }) => {
 
   useEffect(() => {
     if (!accessToken) return;
+    console.log(accessToken);
     spotifyApi.setAccessToken(accessToken);
   }, [accessToken]);
 
   return (
-    <div>
+    <DashboardWrapper>
       {chill ? <SpotifyChill /> : <SpotifyWork accessToken={accessToken} />}
-    </div>
+    </DashboardWrapper>
   );
 };
 
