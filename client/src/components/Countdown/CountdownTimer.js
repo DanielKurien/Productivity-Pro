@@ -97,7 +97,6 @@ const CountdownTimer = () => {
               duration={minuteSeconds}
               initialRemainingTime={chillRemainingTime % minuteSeconds}
               onComplete={(totalElapsedTime) => {
-                console.log(totalElapsedTime - chillRemainingTime);
                 if (totalElapsedTime - chillRemainingTime === 0) {
                   return false;
                 }

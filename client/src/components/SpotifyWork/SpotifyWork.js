@@ -65,12 +65,23 @@ const SpotifyWork = ({ accessToken }) => {
     spotifyApi
       .getPlaylistTracks(workPlaylist.id)
       .then((data) => {
-        setWorkPlaylistSongs(data.body.tracks);
+        setWorkPlaylistSongs(
+          data.body.items.map((song) => {
+            console.log(song);
+            return {
+              artist: song.track.album.artists[0].name,
+              title: song.track.name,
+              uri: song.track.uri,
+              albumUrl: song.track.album.images[2].url,
+            };
+          })
+        );
       })
       .catch((err) => {
         console.log(err);
       });
   }, [workPlaylist]);
+
   const buttonChange = () => {
     if (buttonToggle === "Play Songs") {
       setButtonToggle("Add Songs");
