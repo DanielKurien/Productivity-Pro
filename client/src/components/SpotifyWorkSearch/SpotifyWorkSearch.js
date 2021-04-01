@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";
-import SeachItem from "../../components/SearchItem/SearchItem";
+import SearchItem from "../../components/SearchItem/SearchItem";
 import {
   SearchItemsWrapper,
   WorkSearchInput,
@@ -75,7 +75,7 @@ const SpotifyWorkSearch = ({ accessToken }) => {
       />
       <SearchItemsWrapper>
         {searchResults.map((result) => (
-          <SeachItem
+          <SearchItem
             key={result.uri}
             title={result.title}
             uri={result.uri}
