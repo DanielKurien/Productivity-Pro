@@ -6,6 +6,7 @@ import {
   SongItemSong,
   SongTextWrapper,
   AddSongButton,
+  ButtonWrapper,
   SongMainWrapper,
 } from "./SongItemElements";
 const SongItem = ({ title, album, artist, onClick }) => {
@@ -18,7 +19,9 @@ const SongItem = ({ title, album, artist, onClick }) => {
           <SongItemSong>{title}</SongItemSong>
         </SongTextWrapper>
       </SongMainWrapper>
-      <AddSongButton onClick={onClick}>Add Song</AddSongButton>
+      <ButtonWrapper>
+        <AddSongButton onClick={onClick}>Play Song</AddSongButton>
+      </ButtonWrapper>
     </SongItemWrapper>
   );
 };

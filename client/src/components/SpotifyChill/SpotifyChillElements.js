@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const SpotifyWorkWrapper = styled.div`
+export const SpotifyChillWrapper = styled.div`
   padding: 1rem;
 `;
 
-export const SpotifyWorkButton = styled.button`
+export const SpotifyChillButton = styled.button`
   background-color: #2d333b;
   color: #5cdb95;
   padding: 0.3rem;
@@ -19,12 +19,9 @@ export const SpotifyWorkButton = styled.button`
     background-color: #5cdb95;
     color: #22272e;
   }
-  @media only screen and (max-width: 500px) {
-    font-size: 0.8rem;
-  }
 `;
 
-export const SpotifyWorkMainWrapper = styled.div`
+export const SpotifyChillMainWrapper = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -32,38 +29,22 @@ export const SpotifyWorkMainWrapper = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const SpotifyWorkMiddleWrapper = styled.div`
+export const SpotifyChillMiddleWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
 `;
 export const SpotifyLogo = styled.img`
   width: 4rem;
-
-  @media only screen and (max-width: 500px) {
-    width: 2.7rem;
-  }
 `;
 
-export const SpotifyWorkUserText = styled.p`
+export const SpotifyChillUserText = styled.p`
   color: #cdd9e5;
   font-size: 1.2rem;
-
-  @media only screen and (max-width: 1000px) {
-    font-size: 1rem;
-  }
-
-  @media only screen and (max-width: 500px) {
-    font-size: 0.8rem;
-  }
 `;
 
-export const SpotifyWorkPlaylistText = styled.p`
+export const SpotifyChillPlaylistText = styled.p`
   color: #5cdb95;
   font-weight: bold;
-  font-size: 1.6rem;
-
-  @media only screen and (max-width: 1000px) {
-    font-size: 1.2rem;
-  }
+  font-size: 1.8rem;
 `;

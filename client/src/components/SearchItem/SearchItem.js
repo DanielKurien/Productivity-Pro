@@ -7,6 +7,7 @@ import {
   SearchTextWrapper,
   AddSongButton,
   SearchMainWrapper,
+  ButtonWrapper,
 } from "./SearchItemElements";
 const SearchItem = ({ title, album, artist, onClick }) => {
   return (
@@ -18,7 +19,9 @@ const SearchItem = ({ title, album, artist, onClick }) => {
           <SearchItemSong>{title}</SearchItemSong>
         </SearchTextWrapper>
       </SearchMainWrapper>
-      <AddSongButton onClick={onClick}>Add Song</AddSongButton>
+      <ButtonWrapper>
+        <AddSongButton onClick={onClick}>Add Song</AddSongButton>
+      </ButtonWrapper>
     </SearchItemWrapper>
   );
 };

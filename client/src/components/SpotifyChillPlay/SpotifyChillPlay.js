@@ -1,30 +1,30 @@
 import React, { useContext, useState, useEffect } from "react";
-import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";
+import { SpotifyChillContext } from "../../context/SpotifyChillContext";
 
 import SpotifyWebPlayer from "react-spotify-web-playback";
 import SongItem from "../../components/SongItem/SongItem";
 import {
   SongItemsWrapper,
-  WorkPlayerWrapper,
+  ChillPlayerWrapper,
   SongMainWrapper,
-  SpotifyWorkMainWrapper,
-  SpotifyWorkPlayerWrapper,
-} from "./SpotifyWorkPlayElements";
+  SpotifyChillMainWrapper,
+  SpotifyChillPlayerWrapper,
+} from "./SpotifyChillPlayElements";
 
-const SpotifyWorkPlay = ({ accessToken }) => {
-  const { workPlaylistSongs } = useContext(SpotifyWorkContext);
+const SpotifyChillPlay = ({ accessToken }) => {
+  const { chillPlaylistSongs } = useContext(SpotifyChillContext);
   const [customSongsUris, setCustomSongsUris] = useState(null);
   const [songsUris, setSongsUris] = useState(null);
   const [play, setPlay] = useState(false);
 
   useEffect(() => {
-    if (!workPlaylistSongs) return;
+    if (!chillPlaylistSongs) return;
     setSongsUris(
-      workPlaylistSongs.map((song) => {
+      chillPlaylistSongs.map((song) => {
         return song.uri;
       })
     );
-  }, [workPlaylistSongs]);
+  }, [chillPlaylistSongs]);
 
   const playSong = (songUri) => {
     setPlay(true);
@@ -38,11 +38,11 @@ const SpotifyWorkPlay = ({ accessToken }) => {
     }
   };
   return (
-    <SpotifyWorkPlayerWrapper>
-      <SpotifyWorkMainWrapper>
+    <SpotifyChillPlayerWrapper>
+      <SpotifyChillMainWrapper>
         <SongMainWrapper>
           <SongItemsWrapper>
-            {workPlaylistSongs.map((result) => (
+            {chillPlaylistSongs.map((result) => (
               <SongItem
                 key={result.uri}
                 title={result.title}
@@ -55,7 +55,7 @@ const SpotifyWorkPlay = ({ accessToken }) => {
             ))}
           </SongItemsWrapper>
         </SongMainWrapper>
-        <WorkPlayerWrapper>
+        <ChillPlayerWrapper>
           {accessToken && songsUris !== [] ? (
             <SpotifyWebPlayer
               token={accessToken}
@@ -73,10 +73,10 @@ const SpotifyWorkPlay = ({ accessToken }) => {
           ) : (
             ""
           )}
-        </WorkPlayerWrapper>
-      </SpotifyWorkMainWrapper>
-    </SpotifyWorkPlayerWrapper>
+        </ChillPlayerWrapper>
+      </SpotifyChillMainWrapper>
+    </SpotifyChillPlayerWrapper>
   );
 };
 
-export default SpotifyWorkPlay;
+export default SpotifyChillPlay;

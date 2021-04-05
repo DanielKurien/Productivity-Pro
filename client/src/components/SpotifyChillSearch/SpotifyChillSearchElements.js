@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WorkSearchWrapper = styled.div`
+export const ChillSearchWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -23,7 +23,7 @@ export const SearchResultsMainWrapper = styled.div`
     height: 34vh;
   }
 `;
-export const WorkSearchInput = styled.input`
+export const ChillSearchInput = styled.input`
   width: 100%;
   background-color: #2d333b;
   color: #5cdb95;
