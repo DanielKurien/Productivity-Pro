@@ -1,22 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
-import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";
+import { SpotifyChillContext } from "../../context/SpotifyChillContext";
 
 import SearchItem from "../../components/SearchItem/SearchItem";
 import {
-  WorkSearchInput,
-  WorkSearchWrapper,
+  ChillSearchInput,
+  ChillSearchWrapper,
   SearchResultsWrapper,
   SearchResultsMainWrapper,
-} from "./SpotifyWorkSearchElements";
+} from "./SpotifyChillSearchElements";
 
 const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
 const spotifyApi = new SpotifyWebApi({
   clientId: REACT_APP_SPOTIFY_CLIENT_ID,
 });
 
-const SpotifyWorkSearch = ({ accessToken }) => {
-  const { workPlaylist, setWorkPlaylistSongs } = useContext(SpotifyWorkContext);
+const SpotifyChillSearch = ({ accessToken }) => {
+  const { chillPlaylist, setChillPlaylistSongs } = useContext(
+    SpotifyChillContext
+  );
 
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -25,11 +27,11 @@ const SpotifyWorkSearch = ({ accessToken }) => {
     const track = [];
     track.push(trackUri);
     try {
-      await spotifyApi.addTracksToPlaylist(workPlaylist.id, track);
+      await spotifyApi.addTracksToPlaylist(chillPlaylist.id, track);
       const updatedSongs = await (
-        await spotifyApi.getPlaylistTracks(workPlaylist.id)
+        await spotifyApi.getPlaylistTracks(chillPlaylist.id)
       ).body.items;
-      setWorkPlaylistSongs(
+      setChillPlaylistSongs(
         updatedSongs.map((song) => {
           return {
             artist: song.track.album.artists[0].name,
@@ -79,11 +81,11 @@ const SpotifyWorkSearch = ({ accessToken }) => {
   }, [search, accessToken]);
 
   return (
-    <WorkSearchWrapper>
-      <WorkSearchInput
+    <ChillSearchWrapper>
+      <ChillSearchInput
         type="text"
         value={search}
-        placeholder="Search for song to add to Work Playlist"
+        placeholder="Search for song to add to Chill Playlist"
         onChange={(e) => setSearch(e.target.value)}
       />
       {search === "" ? (
@@ -104,8 +106,8 @@ const SpotifyWorkSearch = ({ accessToken }) => {
           </SearchResultsMainWrapper>
         </SearchResultsWrapper>
       )}
-    </WorkSearchWrapper>
+    </ChillSearchWrapper>
   );
 };
 
-export default SpotifyWorkSearch;
+export default SpotifyChillSearch;

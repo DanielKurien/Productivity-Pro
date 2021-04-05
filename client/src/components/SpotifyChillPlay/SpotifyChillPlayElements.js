@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SpotifyWorkPlayerWrapper = styled.div`
+export const SpotifyChillPlayerWrapper = styled.div`
   max-width: 100%;
   background-color: #2d333b;
   padding: 0.5rem;
@@ -9,8 +9,8 @@ export const SpotifyWorkPlayerWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export const SpotifyWorkMainWrapper = styled.div``;
-export const WorkPlayerWrapper = styled.div`
+export const SpotifyChillMainWrapper = styled.div``;
+export const ChillPlayerWrapper = styled.div`
   max-width: 100%;
 `;
 export const SongMainWrapper = styled.div`

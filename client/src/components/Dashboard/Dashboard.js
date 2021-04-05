@@ -21,7 +21,11 @@ const Dashboard = ({ code }) => {
 
   return (
     <DashboardWrapper>
-      {chill ? <SpotifyChill /> : <SpotifyWork accessToken={accessToken} />}
+      {chill ? (
+        <SpotifyChill accessToken={accessToken} />
+      ) : (
+        <SpotifyWork accessToken={accessToken} />
+      )}
     </DashboardWrapper>
   );
 };

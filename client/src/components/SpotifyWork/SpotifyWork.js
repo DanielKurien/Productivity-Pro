@@ -61,13 +61,12 @@ const SpotifyWork = ({ accessToken }) => {
   }, [accessToken]);
 
   useEffect(() => {
-    if (!workPlaylist) return;
+    if (!workPlaylist || !accessToken || !workPlaylist.id) return;
     spotifyApi
       .getPlaylistTracks(workPlaylist.id)
       .then((data) => {
         setWorkPlaylistSongs(
           data.body.items.map((song) => {
-            console.log(song);
             return {
               artist: song.track.album.artists[0].name,
               title: song.track.name,
@@ -80,7 +79,7 @@ const SpotifyWork = ({ accessToken }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [workPlaylist]);
+  }, [workPlaylist, accessToken]);
 
   const buttonChange = () => {
     if (buttonToggle === "Play Songs") {
