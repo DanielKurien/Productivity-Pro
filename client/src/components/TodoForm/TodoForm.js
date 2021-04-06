@@ -4,8 +4,6 @@ import { TodoFormWrapper, TodoFormInput, TodoButton } from "./TodoFormElements";
 import { TodosContext } from "../.././context/TodosContext";
 import { AuthContext } from "../.././context/Auth";
 import { db } from "../../services/firebase";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const TodoForm = () => {
   // Context and state needed for TodoForm Component
@@ -63,11 +61,7 @@ const TodoForm = () => {
         value={newTodo}
       />
       {/* Input to add date for todo */}
-      <DatePicker
-        dateFormat="yyyy-MM-dd"
-        selected={newDate}
-        onChange={(date) => setNewDate(date)}
-      />
+
       {/* Button to submit new todo */}
       <TodoButton type="submit">Submit Todo</TodoButton>
     </TodoFormWrapper>

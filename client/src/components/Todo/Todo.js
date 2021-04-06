@@ -1,6 +1,17 @@
 //imports needed for Todo Components
-import React, { useContext } from "react";
-import { TodoWrapper } from "./TodoElements";
+import React, { useContext, useState } from "react";
+import {
+  TodoWrapper,
+  DeleteIcon,
+  CompletedIcon,
+  TodoText,
+  TodoDate,
+  TodoDisplayWrapper,
+  TodoRightWrapper,
+  TodoChangeWrapper,
+  IconsWrapper,
+  TodoInput,
+} from "./TodoElements";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../.././context/TodosContext";
 import { db } from "../../services/firebase";
@@ -9,7 +20,8 @@ const Todo = ({ todo }) => {
   // context and state needed for Todo component
   const { currentUser } = useContext(AuthContext);
   const { todos, setTodos } = useContext(TodosContext);
-
+  const [todoTitle, setTodoTitle] = useState("");
+  const [input, setInput] = useState(false);
   //delete todo function
   const deleteTodo = async (todoId) => {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId);
@@ -21,6 +33,17 @@ const Todo = ({ todo }) => {
     } catch (err) {
       alert("Todo was not removed. Please refresh page and try again");
     }
+  };
+
+  const todoClickHandler = () => {
+    if (!input) {
+      setTodoTitle(todo.title);
+      setInput(!input);
+    }
+  };
+
+  const handleTodoTitleChange = (event) => {
+    setTodoTitle(event.target.value);
   };
 
   const updateTodo = async (todoId, index) => {
@@ -47,22 +70,39 @@ const Todo = ({ todo }) => {
     }
   };
   return (
-    <TodoWrapper>
-      <p>{todo.title}</p>
-      <button
-        onClick={() => {
-          deleteTodo(todo.id);
-        }}
-      >
-        Delete Todo
-      </button>
-      <button
+    <TodoWrapper onClick={() => todoClickHandler()}>
+      {input ? (
+        <TodoChangeWrapper>
+          <TodoChangeForm>
+            <TodoInput value={todoTitle} onChange={handleTodoTitleChange} />
+          </TodoChangeForm>
+        </TodoChangeWrapper>
+      ) : (
+        <TodoDisplayWrapper>
+          {" "}
+          <TodoText>{todo.title}</TodoText>
+          <TodoRightWrapper>
+            <TodoDate>{todo.date}</TodoDate>
+            <IconsWrapper>
+              <CompletedIcon />
+              <DeleteIcon
+                onClick={() => {
+                  deleteTodo(todo.id);
+                }}
+              >
+                Delete Todo
+              </DeleteIcon>
+            </IconsWrapper>
+          </TodoRightWrapper>
+          {/* <button
         onClick={() => {
           updateTodo(todo.id, todos.indexOf(todo));
         }}
       >
         Update Todo
-      </button>
+      </button> */}
+        </TodoDisplayWrapper>
+      )}
     </TodoWrapper>
   );
 };
