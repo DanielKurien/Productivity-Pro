@@ -12,7 +12,7 @@ import Todo from "../Todo/Todo";
 const TodoSection = () => {
   // todos context needed for TodoSection
   const { todos } = useContext(TodosContext);
-  console.log(todos);
+
   return (
     /* Wrapper for holding TodoForm and todos */
     <TodoSectionWrapper>
