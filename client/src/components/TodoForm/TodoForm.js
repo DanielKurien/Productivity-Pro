@@ -1,6 +1,6 @@
 // imports for TodoForm
 import React, { useContext, useState } from "react";
-import { TodoFormWrapper, TodoFormInput, TodoButton } from "./TodoFormElements";
+import { TodoFormWrapper, TodoFormInput, TodoButton,DateSelector } from "./TodoFormElements";
 import { TodosContext } from "../.././context/TodosContext";
 import { AuthContext } from "../.././context/Auth";
 import { db } from "../../services/firebase";
@@ -10,7 +10,7 @@ const TodoForm = () => {
   const { currentUser } = useContext(AuthContext);
   const { todos, setTodos } = useContext(TodosContext);
   const [newTodo, setNewTodo] = useState("");
-  const [newDate, setNewDate] = useState(null);
+  const [newDate, setNewDate] = useState(new Date());
   //function for adding a new todo
   const handleNewTodo = async (event) => {
     event.preventDefault();
@@ -61,7 +61,7 @@ const TodoForm = () => {
         value={newTodo}
       />
       {/* Input to add date for todo */}
-
+      <DateSelector onChange={setNewDate} value={newDate}/>
       {/* Button to submit new todo */}
       <TodoButton type="submit">Submit Todo</TodoButton>
     </TodoFormWrapper>

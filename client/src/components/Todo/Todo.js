@@ -11,6 +11,8 @@ import {
   TodoChangeWrapper,
   IconsWrapper,
   TodoInput,
+  TodoChangeForm,
+  TodoChangeButton
 } from "./TodoElements";
 import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../.././context/TodosContext";
@@ -69,12 +71,18 @@ const Todo = ({ todo }) => {
       }
     }
   };
+
+  const handleTodoChange = (event) =>{
+    event.preventDefault();
+    console.log("Form")
+  }
   return (
     <TodoWrapper onClick={() => todoClickHandler()}>
       {input ? (
         <TodoChangeWrapper>
-          <TodoChangeForm>
+          <TodoChangeForm onSubmit={handleTodoChange}>
             <TodoInput value={todoTitle} onChange={handleTodoTitleChange} />
+            <TodoChangeButton>SubmitButton</TodoChangeButton>
           </TodoChangeForm>
         </TodoChangeWrapper>
       ) : (
