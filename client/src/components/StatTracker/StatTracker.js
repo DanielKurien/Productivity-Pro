@@ -17,27 +17,42 @@ const StatTracker = () => {
   const { friends, setFriends } = useContext(FriendsContext);
   const [newFriend, setNewFriend] = useState("");
   const [friendsData, setFriendsData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+  const [emails, setEmails] = useState(null);
   useEffect(() => {
-    if (friends.length !== 0) {
-      const emails = friends.map((friend) => friend.email);
-      const newData = [];
-      db.collection("emails")
-        .where("email", "in", emails)
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            newData.push(doc.data());
-          });
-        });
-      setFriendsData(newData);
-    }
+    if (!friends || friends.length === 0) return;
+    setEmails(
+      friends.map((friend) => {
+        return friend.email;
+      })
+    );
   }, [friends]);
 
-  setTimeout(() => {
-    setLoading(!loading);
-  }, 100);
+  useEffect(() => {
+    if (!emails || emails.length === 0) return;
+    db.collection("emails")
+      .where("email", "in", emails)
+      .get()
+      .then((querySnapshot) => {
+        setFriendsData(
+          querySnapshot.docs.map((doc) => {
+            return doc.data();
+          })
+        );
+      });
+  }, [emails]);
+
+  useEffect(() => {
+    if (!emails) return;
+    db.collection("emails")
+      .where("email", "in", emails)
+      .onSnapshot((querySnapshot) => {
+        setFriendsData(
+          querySnapshot.docs.map((doc) => {
+            return doc.data();
+          })
+        );
+      });
+  }, [emails]);
 
   const handleNewFriend = (event) => {
     event.preventDefault();
