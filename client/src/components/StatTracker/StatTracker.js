@@ -120,7 +120,6 @@ const StatTracker = () => {
               <StatTableHeading>Todos</StatTableHeading>
             </StatTableRow>
           </StatTableHead>
-
           <StatTableBody>
             {friendsData.map((friend) => (
               <StatTableRow key={friend.email}>
