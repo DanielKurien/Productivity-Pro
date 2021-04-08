@@ -18,6 +18,7 @@ export const TodoMainWrapper = styled.div`
 `;
 
 export const TodoItemsWrapper = styled.div`
-  height: 90%;
+  height: 65%;
+  max-height: 65%;
   overflow-y: auto;
 `;

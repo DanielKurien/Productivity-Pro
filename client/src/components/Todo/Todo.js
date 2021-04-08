@@ -76,7 +76,6 @@ const Todo = ({ todo }) => {
 
   const handleTodoChange = async (event) => {
     event.preventDefault();
-    console.log("Form");
     let updatedTodo = todos.filter((elementTodo) => elementTodo.id === todo.id);
     let index = todos.indexOf(todo);
     updatedTodo = updatedTodo[0];

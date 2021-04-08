@@ -2,17 +2,16 @@ import styled from "styled-components";
 import { BsFillTrashFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";
 
-
-export const TodoChangeForm = styled.form``
+export const TodoChangeForm = styled.form``;
 
 export const TodoChangeButton = styled.button`
-  display:none;
-`
-
+  display: none;
+`;
 
 export const TodoWrapper = styled.div`
   width: 100%;
   display: flex;
+  margin-bottom: 1rem;
   justify-content: space-between;
   align-items: center;
   border-radius: 1rem;
