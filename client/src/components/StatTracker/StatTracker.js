@@ -8,6 +8,12 @@ import {
   AddFriendButton,
   AddFriendInput,
   AddFriendForm,
+  StatTrackerTable,
+  StatTableHeading,
+  StatTableRow,
+  StatTableHead,
+  StatTableItem,
+  StatTableBody,
 } from "./StatTrackerElements";
 import { AuthContext } from "../.././context/Auth";
 import { FriendsContext } from "../../context/FriendsContext";
@@ -106,22 +112,29 @@ const StatTracker = () => {
             <AddFriendButton type="submit">Add Friend</AddFriendButton>
           </AddFriendForm>
         </StatHeading>
-        <table>
-          <tbody>
-            <tr>
-              <th>Email</th>
-              <th>Pomodoro Work Timers Completed</th>
-              <th>Todos Completed</th>
-            </tr>
+        <StatTrackerTable>
+          <StatTableHead>
+            <StatTableRow>
+              <StatTableHeading>Email</StatTableHeading>
+              <StatTableHeading>Work Timers</StatTableHeading>
+              <StatTableHeading>Todos</StatTableHeading>
+            </StatTableRow>
+          </StatTableHead>
+
+          <StatTableBody>
             {friendsData.map((friend) => (
-              <tr key={friend.email}>
-                <td>{friend.email}</td>
-                <td>{friend.pomodoros}</td>
-                <td>{friend.todosCompleted}</td>
-              </tr>
+              <StatTableRow key={friend.email}>
+                <StatTableItem data-label="Email">{friend.email}</StatTableItem>
+                <StatTableItem data-label="Work Timers">
+                  {friend.pomodoros}
+                </StatTableItem>
+                <StatTableItem data-label="Todos">
+                  {friend.todosCompleted}
+                </StatTableItem>
+              </StatTableRow>
             ))}
-          </tbody>
-        </table>
+          </StatTableBody>
+        </StatTrackerTable>
       </StatMainWrapper>
     </StatTrackerWrapper>
   );
