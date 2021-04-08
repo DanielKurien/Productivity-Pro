@@ -1,6 +1,10 @@
 //imports for TodoSection;
 import React, { useContext } from "react";
-import { TodoSectionWrapper, TodoMainWrapper } from "./TodoSectionElements";
+import {
+  TodoSectionWrapper,
+  TodoMainWrapper,
+  TodoItemsWrapper,
+} from "./TodoSectionElements";
 import { TodosContext } from "../../context/TodosContext";
 import TodoForm from "../TodoForm/TodoForm";
 import Todo from "../Todo/Todo";
@@ -8,16 +12,18 @@ import Todo from "../Todo/Todo";
 const TodoSection = () => {
   // todos context needed for TodoSection
   const { todos } = useContext(TodosContext);
+
   return (
     /* Wrapper for holding TodoForm and todos */
     <TodoSectionWrapper>
       {/* Rendering out form for adding todos*/}
-      <TodoForm />
-      {/* Rendering out each todo*/}
       <TodoMainWrapper>
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
+        <TodoForm />
+        <TodoItemsWrapper>
+          {todos.map((todo) => (
+            <Todo key={todo.id} todo={todo} />
+          ))}
+        </TodoItemsWrapper>
       </TodoMainWrapper>
     </TodoSectionWrapper>
   );
