@@ -50,29 +50,29 @@ const Todo = ({ todo }) => {
     setTodoTitle(event.target.value);
   };
 
-  const updateTodo = async (index) => {
-    let todo = todos.filter((elementTodo) => elementTodo.id === todo.id);
-    todo = todo[0];
+  // const updateTodo = async (index) => {
+  //   let todo = todos.filter((elementTodo) => elementTodo.id === todo.id);
+  //   todo = todo[0];
 
-    // const update = prompt("Update todo text or date: (type text or date)");
-    // if (update === "text") {
-    //   const todoText = prompt(
-    //     "What would you like to update text with",
-    //     todo.value
-    //   );
-    //   todo.value = todoText;
-    //   const newTodos = todos;
-    //   newTodos[index] = todo;
-    //   setTodos([...newTodos]);
-    //   try {
-    //     await db.collection("users").doc(currentUser.uid).update({
-    //       todos: newTodos,
-    //     });
-    //   } catch (err) {
-    //     alert("Todo was not updated. Please refresh page and try again");
-    //   }
-    // }
-  };
+  // const update = prompt("Update todo text or date: (type text or date)");
+  // if (update === "text") {
+  //   const todoText = prompt(
+  //     "What would you like to update text with",
+  //     todo.value
+  //   );
+  //   todo.value = todoText;
+  //   const newTodos = todos;
+  //   newTodos[index] = todo;
+  //   setTodos([...newTodos]);
+  //   try {
+  //     await db.collection("users").doc(currentUser.uid).update({
+  //       todos: newTodos,
+  //     });
+  //   } catch (err) {
+  //     alert("Todo was not updated. Please refresh page and try again");
+  //   }
+  // }
+  // };
 
   const handleTodoChange = async (event) => {
     event.preventDefault();
