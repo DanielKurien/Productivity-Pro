@@ -6,6 +6,7 @@
 
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { AiFillGithub } from "react-icons/ai";
 
 export const Nav = styled.nav`
   box-sizing: border-box;
@@ -49,6 +50,33 @@ export const NavLogo = styled.h1`
   }
 `;
 
+export const GithubIcon = styled(AiFillGithub)`
+  font-size: 2.4rem;
+  border: 0.2rem solid #22272e;
+  border-radius: 50%;
+  background-color: #373e47;
+  color: #cdd9e5;
+  &:hover {
+    color: #5cdb95;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (max-width: 365px) {
+    font-size: 1.4rem;
+  }
+`;
+
+export const NavMainWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 export const NavLinks = styled.ul`
   list-style-type: none;
   display: flex;
@@ -57,7 +85,8 @@ export const NavLinks = styled.ul`
 export const NavLink = styled(Link)`
   text-decoration: none;
   font-family: "Noto Sans JP", sans-serif;
-  margin: 1rem;
+  margin: 1rem 0rem;
+  margin-right: 0.7rem;
   font-size: 1.1rem;
   border: 0.2rem solid #22272e;
   background-color: #373e47;
@@ -80,7 +109,7 @@ export const NavLink = styled(Link)`
     padding: 0.25rem 0.5rem;
   }
 
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 365px) {
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
     margin: 0 0.2rem;
