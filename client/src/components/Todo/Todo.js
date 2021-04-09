@@ -90,7 +90,9 @@ const Todo = ({ todo }) => {
                   db.collection("emails")
                     .doc(currentUser.email)
                     .update({
-                      pomodoros: firebase.firestore.FieldValue.increment(1),
+                      todosCompleted: firebase.firestore.FieldValue.increment(
+                        1
+                      ),
                     });
                 }}
               />

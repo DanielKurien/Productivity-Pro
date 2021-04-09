@@ -13,6 +13,7 @@ import {
   StatTableRow,
   StatTableHead,
   StatTableItem,
+  StatTableItemUser,
   StatTableBody,
 } from "./StatTrackerElements";
 import { AuthContext } from "../.././context/Auth";
@@ -22,6 +23,7 @@ const StatTracker = () => {
   const { currentUser } = useContext(AuthContext);
   const { friends, setFriends } = useContext(FriendsContext);
   const [newFriend, setNewFriend] = useState("");
+  const [userData, setUserData] = useState([]);
   const [friendsData, setFriendsData] = useState([]);
   const [emails, setEmails] = useState(null);
   useEffect(() => {
@@ -60,6 +62,25 @@ const StatTracker = () => {
       });
   }, [emails]);
 
+  useEffect(() => {
+    db.collection("emails")
+      .where("email", "==", currentUser.email)
+      .get()
+      .then((userInfo) => {
+        setUserData(userInfo.docs[0].data());
+      });
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    db.collection("emails")
+      .where("email", "==", currentUser.email)
+      .onSnapshot((userSnapshot) => {
+        setUserData(userSnapshot.docs[0].data());
+      });
+    //eslint-disable-next-line
+  }, []);
+
   const handleNewFriend = (event) => {
     event.preventDefault();
 
@@ -77,7 +98,7 @@ const StatTracker = () => {
           if (alreadyFriend) {
             alert("This person is already your friend");
           } else if (newFriend === currentUser.email) {
-            alert("You can't add youself as a friend.");
+            alert("You're info is on the Stat Tracker");
           } else {
             const friendObject = {
               id: friends.length + 1,
@@ -121,6 +142,17 @@ const StatTracker = () => {
             </StatTableRow>
           </StatTableHead>
           <StatTableBody>
+            <StatTableRow>
+              <StatTableItemUser data-label="Email">
+                {userData.email}
+              </StatTableItemUser>
+              <StatTableItemUser data-label="Work Timers">
+                {userData.pomodoros}
+              </StatTableItemUser>
+              <StatTableItemUser data-label="Todos">
+                {userData.todosCompleted}
+              </StatTableItemUser>
+            </StatTableRow>
             {friendsData.map((friend) => (
               <StatTableRow key={friend.email}>
                 <StatTableItem data-label="Email">{friend.email}</StatTableItem>

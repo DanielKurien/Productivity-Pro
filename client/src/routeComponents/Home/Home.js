@@ -6,7 +6,7 @@ import { TodosContext } from "../../context/TodosContext";
 import { ChillContext } from "../../context/ChillContext";
 import { FriendsContext } from "../../context/FriendsContext";
 import EventCalendar from "../../components/EventCalendar";
-import CountdownTimer from "../../components/Countdown/CountdownTimer";
+import CountdownTimerChanger from "../../components/CountdownTimerChanger/CountdownTimerChanger";
 import TodoSection from "../../components/TodoSection/TodoSection";
 import SpotifyFunctionality from "../../components/SpotifyFunctionality/SpotifyFunctionality";
 import HomeNav from "../../components/HomeNav/HomeNav";
@@ -52,7 +52,7 @@ const Home = () => {
             <HomeLeft>
               <ChillContext.Provider value={{ chill, setChill }}>
                 <HomeLeftColumn>
-                  <CountdownTimer />
+                  <CountdownTimerChanger />
                   <SpotifyFunctionality />
                 </HomeLeftColumn>
                 <TodoSection />

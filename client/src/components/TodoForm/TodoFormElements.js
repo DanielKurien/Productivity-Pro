@@ -84,6 +84,10 @@ export const DateSelector = styled(DatePicker)`
   }
   .react-calendar__tile {
     color: white;
+
+    &:hover {
+      background-color: #5cdb95;
+    }
   }
 
   .react-calendar__month-view__days__day {
