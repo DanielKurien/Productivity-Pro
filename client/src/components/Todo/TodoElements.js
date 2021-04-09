@@ -1,3 +1,9 @@
+/* Styled Components needed for the Todo Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 import { BsFillTrashFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";

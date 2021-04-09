@@ -1,3 +1,10 @@
+/* Component controls which timer should be shown to the user, based on 
+the global "chill" state. If state is set to true, the chill timer is shown.
+Otherwise, the work timer is rendered. User can control which timer is shown 
+(by changing this state) using the child toggle component rendered in this parent 
+component
+*/
+
 import React, { useContext } from "react";
 import { ChillContext } from "../../context/ChillContext";
 import CountdownTimerChill from "../CountdownTimerChill/CountdownTimerChill";

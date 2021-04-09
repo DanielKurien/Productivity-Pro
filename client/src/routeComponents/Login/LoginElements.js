@@ -1,3 +1,9 @@
+/* Styled Components needed for the Login Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";

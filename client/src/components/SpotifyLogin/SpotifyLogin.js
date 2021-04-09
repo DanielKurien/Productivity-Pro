@@ -1,3 +1,5 @@
+/* Component used to handle the user logging into Spotify. */
+
 import React from "react";
 import { SpotifyLink, SpotifyLinkWrapper } from "./SpotifyLoginElements";
 

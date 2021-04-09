@@ -1,3 +1,9 @@
+/* SpotifyChill Component takes care of the top-level
+funtionality needed for the Spotify Chill section.
+In terms of functions it retrieves the user's playlist and playlist song information
+and gives it to the nested components. Component also allows user to switch from adding 
+songs to playlist to playing songs in playlist.
+*/
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import SpotifyChillPlay from "../../components/SpotifyChillPlay/SpotifyChillPlay";

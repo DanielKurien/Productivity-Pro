@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import "./EventCalendar";
-import { TodosContext } from ".././context/TodosContext";
+/* Styled Components needed for the EventCalendar Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 
-//fc-daygrid-block-event fc-h-event fc-event fc-event-start fc-event-end fc-event-past
-const CalendarWrapper = styled.div`
+export const CalendarWrapper = styled.div`
   flex: 1;
   background-color: #2d333b;
   box-sizing: border-box;
@@ -21,7 +21,7 @@ const CalendarWrapper = styled.div`
     flex: 1;
   }
 `;
-const EventCalendarWrapper = styled.div`
+export const EventCalendarWrapper = styled.div`
 
   .fc-event-title-container{
     background-color:#373e47;
@@ -93,24 +93,3 @@ const EventCalendarWrapper = styled.div`
     }
   }
 `;
-const EventCalendar = () => {
-  const { todos } = useContext(TodosContext);
-  return (
-    <CalendarWrapper>
-      <EventCalendarWrapper>
-        <FullCalendar
-          plugins={[dayGridPlugin]}
-          initialView="dayGridDay"
-          events={[...todos]}
-          headerToolbar={{
-            left: "prev,next",
-            center: "title",
-            right: "dayGridDay,dayGridWeek,dayGridMonth",
-          }}
-        />
-      </EventCalendarWrapper>
-    </CalendarWrapper>
-  );
-};
-
-export default EventCalendar;

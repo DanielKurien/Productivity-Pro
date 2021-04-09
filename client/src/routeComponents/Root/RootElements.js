@@ -1,3 +1,9 @@
+/* Styled Components needed for the Root Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 
 export const RootWrapper = styled.div`

@@ -1,3 +1,7 @@
+/* Simple navigation bar on top of screen, when user logs in the App. Using
+  Firebase Authentication, will logout user when they click a sign out button.
+*/
+
 import React from "react";
 import { auth } from "../../services/firebase";
 import { HomeNavWrapper, HomeNavBtn, HomeNavHeading } from "./HomeNavElements";

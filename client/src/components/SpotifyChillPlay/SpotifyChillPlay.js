@@ -1,3 +1,10 @@
+/* This component takes care of all the functionality when it
+  comes to playing a song in the Chill Playlist.
+  When a user clicks on a song to play, the component organizes the 
+  song urls in the correct order so the correct song will be played and the song
+  after it in the playlist will be played next.
+*/
+
 import React, { useContext, useState, useEffect } from "react";
 import { SpotifyChillContext } from "../../context/SpotifyChillContext";
 

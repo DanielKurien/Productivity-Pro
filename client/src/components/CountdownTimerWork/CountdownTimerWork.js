@@ -1,3 +1,11 @@
+/* The CountdownTimerWork component controls the functionality for the work timer.
+    In terms of functionality, it is basically the the same as the CountdownTimerChill
+    component. However, it has two distinct differences. One, is the timer is set to 25
+    minutes as that's the usual in the pomodoro system.
+    Also, when the timer is completed it updates the stat tracker and adds one more to 
+    the the work timer amount in the stat tracker.
+*/
+
 import React, { useState, useEffect, useContext } from "react";
 import firebase from "firebase/app";
 import { AuthContext } from "../.././context/Auth";

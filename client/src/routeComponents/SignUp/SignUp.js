@@ -1,3 +1,9 @@
+/* Contains all of the functionality for the Sign Up Page
+  Uses firebase authentication to make sure that no account with 
+  the same email has been created before. If sign up is succesful,
+  user is brought to the home page of app (Private Route).
+*/
+
 //imports for Sign up Component (Routes, Hooks and Icons)
 import React, { useState } from "react";
 import { withRouter } from "react-router";

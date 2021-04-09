@@ -1,2 +1,5 @@
+# gitignore so modules installed node
+# and environment variables don't get pushed to git
+
 node_modules
 .env

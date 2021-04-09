@@ -1,3 +1,7 @@
+/* Main TodoSection component that contains the TodoForm and also
+will render out a Todo componet for each todo a user has
+*/
+
 //imports for TodoSection;
 import React, { useContext } from "react";
 import {
@@ -16,7 +20,6 @@ const TodoSection = () => {
   return (
     /* Wrapper for holding TodoForm and todos */
     <TodoSectionWrapper>
-      {/* Rendering out form for adding todos*/}
       <TodoMainWrapper>
         <TodoForm />
         <TodoItemsWrapper>

@@ -1,3 +1,11 @@
+/* StatTracker component that holds ALL the functionality for stat tracking. 
+Takes the user's friends and fetches the amount of todos and work pomodoro timers completed.
+Also, the user's information for these two categories. Component takes
+advantage of Firebase's onSnapshot functionality, which will allow the user to see 
+realtime change. Meaning, as soon as a friend completes a todo or work timer,
+the change is reflected in the Stat Tracker.
+*/
+
 import React, { useContext, useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import {
@@ -83,39 +91,44 @@ const StatTracker = () => {
 
   const handleNewFriend = (event) => {
     event.preventDefault();
-
-    db.collection("emails")
-      .doc(newFriend)
-      .get()
-      .then((doc) => {
-        if (!doc.exists) {
-          alert("Your friend does not use our application. Sorry about that.");
-        } else {
-          const alreadyFriend = friends.find(
-            (friend) => friend.email === newFriend
-          );
-
-          if (alreadyFriend) {
-            alert("This person is already your friend");
-          } else if (newFriend === currentUser.email) {
-            alert("You're info is on the Stat Tracker");
+    try {
+      db.collection("emails")
+        .doc(newFriend)
+        .get()
+        .then((doc) => {
+          if (!doc.exists) {
+            alert(
+              "Your friend does not use our application. Sorry about that."
+            );
           } else {
-            const friendObject = {
-              id: friends.length + 1,
-              email: newFriend,
-            };
-            setFriends(friends.concat(friendObject));
-            db.collection("users")
-              .doc(currentUser.uid)
-              .update({
-                friends: [...friends, friendObject],
-              })
-              .catch((err) => {
-                console.log(err);
-              });
+            const alreadyFriend = friends.find(
+              (friend) => friend.email === newFriend
+            );
+
+            if (alreadyFriend) {
+              alert("This person is already your friend");
+            } else if (newFriend === currentUser.email) {
+              alert("You're info is on the Stat Tracker");
+            } else {
+              const friendObject = {
+                id: friends.length + 1,
+                email: newFriend,
+              };
+              setFriends(friends.concat(friendObject));
+              db.collection("users")
+                .doc(currentUser.uid)
+                .update({
+                  friends: [...friends, friendObject],
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }
           }
-        }
-      });
+        });
+    } catch (err) {
+      alert("Please add friend in input");
+    }
     setNewFriend("");
   };
 

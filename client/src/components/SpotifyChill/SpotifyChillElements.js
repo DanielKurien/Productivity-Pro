@@ -1,3 +1,9 @@
+/* Styled Components needed for the SpotifyChill Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 
 export const SpotifyChillWrapper = styled.div`
