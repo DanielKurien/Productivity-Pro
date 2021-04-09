@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ChillContext } from "../../context/ChillContext";
-
+import CountdownTimerChill from "../CountdownTimerChill/CountdownTimerChill";
+import CountdownTimerWork from "../CountdownTimerWork/CountdownTimerWork";
 import {
   CountdownTimerChangerWrapper,
   CountdownTimerChangerMain,
@@ -11,7 +12,6 @@ import {
 import Toggle from "../Toggle/Toggle";
 
 const CountdownTimerChanger = () => {
-  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
   const { chill, setChill } = useContext(ChillContext);
 
   return (
@@ -26,6 +26,7 @@ const CountdownTimerChanger = () => {
           />
           <TimerChangerText>{chill ? "Chill" : "Work"} Timer </TimerChangerText>
         </TimerChangerControl>
+        {chill ? <CountdownTimerChill /> : <CountdownTimerWork />}
       </CountdownTimerChangerMain>
     </CountdownTimerChangerWrapper>
   );
