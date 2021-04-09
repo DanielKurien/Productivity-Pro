@@ -1,3 +1,9 @@
+/*Component for a single todo. Renders out the todo item, date (if it has one) 
+and buttons to the complete the todo. If user clicks on component, they will have 
+the ability to update the text in the todo. If they click the blue checkmark 
+(representing they completed the item), it will be reflected in the stat tracker.
+*/
+
 //imports needed for Todo Components
 import React, { useContext, useState } from "react";
 import firebase from "firebase/app";

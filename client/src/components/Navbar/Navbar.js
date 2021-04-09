@@ -1,3 +1,8 @@
+/* Main Navbar before the user logs in to the app. 
+Has a logo on the left that just says Productivity Pro. 
+On the right, has React Router links where user can Sign Up or Login
+*/
+
 //imports for Navbar Component
 import React from "react";
 import { Nav, NavLogo, NavLinks, NavLink } from "./NavbarElements";

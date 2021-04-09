@@ -1,3 +1,10 @@
+/* Styled Components needed for the CountdownTimerChanger Component
+
+  Styled components allow you to create a custom element overlayed with additional
+  styles. Styled components make it much easier to use write styles in React, compared
+  to using traditional CSS files.
+*/
+
 import styled from "styled-components";
 
 export const CountdownTimerChangerWrapper = styled.div`

@@ -1,3 +1,7 @@
+/* SpotifyWorkSearch component to handle searching using the Spotify Api.
+  Component allows user to add songs to the Work Productivity Pro Playlist.
+*/
+
 import React, { useState, useEffect, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";

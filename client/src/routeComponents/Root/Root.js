@@ -1,3 +1,8 @@
+/* Root component is the page before user is a on a login/signup
+page, or before they're logged in. Quite simple page, with typewriting effect
+to show all the functionality contained in the Productivity Pro Application.
+*/
+
 //imports for Root Component
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";

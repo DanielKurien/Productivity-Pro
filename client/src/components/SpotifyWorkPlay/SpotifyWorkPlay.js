@@ -1,3 +1,8 @@
+/* SpotifyWorkPlay used for playing songs in Work Productivity Pro Playlist. Renders
+a SongItem component for each song. User can click item in playlist to play
+song in playlist.
+ */
+
 import React, { useContext, useState, useEffect } from "react";
 import { SpotifyWorkContext } from "../../context/SpotifyWorkContext";
 

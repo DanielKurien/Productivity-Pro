@@ -1,3 +1,7 @@
+/* File contains all the configuration for firebase, in order to use
+  their firestore database and authentication
+*/
+
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";

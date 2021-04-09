@@ -1,3 +1,8 @@
+/* File needed to create Private Route. This Private Route was made using and 
+for React Router. The Private Route is needed to make sure the user is
+authenticated and then only can they access the main part of our app.
+*/
+
 //imports for Private Route (only accesed when user is loggen in)
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";

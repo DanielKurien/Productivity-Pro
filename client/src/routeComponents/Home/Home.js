@@ -1,3 +1,11 @@
+/* The Home Component is the Top Level Component when the user is logged in.
+  Since it is the top-level component it contains alot of global state to provide 
+  to child components, so many deeper child components can also access the state.
+  The Child components are the top-level sections of the app.
+  The Home Component is attatched to the PrivateRoute created. Meaning, the user can 
+  only access it if they're logged in.
+*/
+
 //imports needed for Home Component
 import React, { useContext, useEffect, useState } from "react";
 import { db } from "../../services/firebase";
@@ -5,7 +13,7 @@ import { AuthContext } from "../.././context/Auth";
 import { TodosContext } from "../../context/TodosContext";
 import { ChillContext } from "../../context/ChillContext";
 import { FriendsContext } from "../../context/FriendsContext";
-import EventCalendar from "../../components/EventCalendar";
+import EventCalendar from "../../components/EventCalendar/EventCalendar.js";
 import CountdownTimerChanger from "../../components/CountdownTimerChanger/CountdownTimerChanger";
 import TodoSection from "../../components/TodoSection/TodoSection";
 import SpotifyFunctionality from "../../components/SpotifyFunctionality/SpotifyFunctionality";

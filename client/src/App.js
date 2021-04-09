@@ -1,3 +1,8 @@
+/* The App component takes care of all the routing in the app. It
+  routes to the Home page, Login Page, Sign Up Page and Root Page
+  which are the "Route Components"
+*/
+
 //Imports neeeded for App (mainly route components)
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";

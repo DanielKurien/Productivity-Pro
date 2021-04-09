@@ -1,3 +1,7 @@
+/* Form to handle the user adding a todo.
+  Has a standard text input, but also a date input.
+  If todo has a date, todo will show up in calendar.
+*/
 // imports for TodoForm
 import React, { useContext, useState } from "react";
 import {

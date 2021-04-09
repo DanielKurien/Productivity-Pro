@@ -1,3 +1,8 @@
+/* Individual Song Item component, that is rendered for each song
+in one of the two playlist that the user is currently looks at it.
+When user clicks button in component, song is played
+*/
+
 import React from "react";
 import {
   SongItemWrapper,

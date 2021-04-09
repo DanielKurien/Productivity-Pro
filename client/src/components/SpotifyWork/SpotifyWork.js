@@ -1,3 +1,8 @@
+/*Top level SpotifyWork component for Spotify Work Functionality.
+  Contains majority of the state needed for this functionality and handles
+  most of the Spotify API requests.
+*/
+
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import SpotifyWorkPlay from "../../components/SpotifyWorkPlay/SpotifyWorkPlay";

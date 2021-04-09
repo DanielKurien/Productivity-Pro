@@ -1,3 +1,11 @@
+/* StatTracker component that holds ALL the functionality for stat tracking. 
+Takes the user's friends and fetches the amount of todos and work pomodoro timers completed.
+Also, the user's information for these two categories. Component takes
+advantage of Firebase's onSnapshot functionality, which will allow the user to see 
+realtime change. Meaning, as soon as a friend completes a todo or work timer,
+the change is reflected in the Stat Tracker.
+*/
+
 import React, { useContext, useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import {

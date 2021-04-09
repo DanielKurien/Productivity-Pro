@@ -1,3 +1,9 @@
+/* Styled Components needed for the Navbar Component
+
+  Please refer to the CountdownTimerChangerElements.js file
+  for a short description of Styled Components
+*/
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 

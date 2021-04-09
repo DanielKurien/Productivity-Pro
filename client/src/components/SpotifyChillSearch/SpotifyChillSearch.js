@@ -1,3 +1,8 @@
+/* This component takes care of all the functionality when it comes 
+to searching for a song to play in the Spotify Chill playlist.
+It sends the search info for one item to the SearchItem component, so
+that it will be displayed nicely
+*/
 import React, { useState, useEffect, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 import { SpotifyChillContext } from "../../context/SpotifyChillContext";

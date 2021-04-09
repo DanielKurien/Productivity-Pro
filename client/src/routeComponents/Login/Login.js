@@ -1,3 +1,9 @@
+/* Contains all of the functionality for the Login Page
+  Uses firebase authentication to make sure has an account with
+  app and therefore can access the main home page, that is only 
+  accesible when the user logs in.
+*/
+
 //imports for Login Components, (Router, Hooks, Icons)
 import React, { useContext, useState } from "react";
 import { withRouter, Redirect } from "react-router";

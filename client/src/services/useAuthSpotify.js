@@ -1,3 +1,8 @@
+/* Custom hook created to get access token and refresh token needed to use 
+  Spotify API correctly. Functions in file called certain routes in our server
+  to get the refresh token and access token to obtain Spotify data appropriately
+*/
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 

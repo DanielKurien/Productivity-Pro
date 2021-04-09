@@ -1,3 +1,8 @@
+/* Spotify Backend Server Needed to handle Spotify Auth. UseAuthSpotify.js, 
+  In client/services, calls routes defined in this server to get 
+  Spotify access token and refresh tokens needed to access Spotify data
+*/
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
