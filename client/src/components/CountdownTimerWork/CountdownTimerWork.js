@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import firebase from "firebase/app";
+import { AuthContext } from "../.././context/Auth";
+import { db } from "../../services/firebase";
+import {
+  CountdownTimerWorkWrapper,
+  CountdownTimerWorkText,
+  CountdownTimerWorkMain,
+  CountdownTimerWorkPauseBtn,
+  CountdownTimerWorkResetBtn,
+  CountdownTimerDoneText,
+} from "./CountdownTimerWorkElements";
+
+import chime from "../../sounds/chime.mp3";
+import { Howl } from "howler";
 
 const CountdownTimerWork = ({ hours = 0, minutes = 25, seconds = 0 }) => {
-  const [paused, setPaused] = React.useState(false);
-  const [over, setOver] = React.useState(false);
-  const [[h, m, s], setTime] = React.useState([hours, minutes, seconds]);
+  const { currentUser } = useContext(AuthContext);
+  const [paused, setPaused] = useState(false);
+  const [over, setOver] = useState(false);
+  const [[h, m, s], setTime] = useState([hours, minutes, seconds]);
+
+  const sound = new Howl({
+    src: [chime],
+  });
 
   const tick = () => {
     if (paused || over) return;
-    if (h === 0 && m === 0 && s === 0) setOver(true);
-    else if (m === 0 && s === 0) {
+    if (h === 0 && m === 0 && s === 0) {
+      setOver(true);
+      sound.play();
+      db.collection("emails")
+        .doc(currentUser.email)
+        .update({
+          pomodoros: firebase.firestore.FieldValue.increment(1),
+        });
+    } else if (m === 0 && s === 0) {
       setTime([h - 1, 59, 59]);
     } else if (s === 0) {
       setTime([h, m - 1, 59]);
@@ -23,22 +49,31 @@ const CountdownTimerWork = ({ hours = 0, minutes = 25, seconds = 0 }) => {
     setOver(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
     return () => clearInterval(timerID);
   });
 
   return (
-    <div>
-      <p>{`${m.toString().padStart(2, "0")}:${s
-        .toString()
-        .padStart(2, "0")}`}</p>
-      <div>{over ? "Time's up!" : ""}</div>
-      <button onClick={() => setPaused(!paused)}>
+    <CountdownTimerWorkWrapper>
+      <CountdownTimerWorkMain>
+        {over ? (
+          <CountdownTimerDoneText>Time's up!</CountdownTimerDoneText>
+        ) : (
+          <CountdownTimerWorkText>{`${m
+            .toString()
+            .padStart(2, "0")}:${s
+            .toString()
+            .padStart(2, "0")}`}</CountdownTimerWorkText>
+        )}
+      </CountdownTimerWorkMain>
+      <CountdownTimerWorkPauseBtn onClick={() => setPaused(!paused)}>
         {paused ? "Resume" : "Pause"}
-      </button>
-      <button onClick={() => reset()}>Restart</button>
-    </div>
+      </CountdownTimerWorkPauseBtn>
+      <CountdownTimerWorkResetBtn onClick={() => reset()}>
+        Restart
+      </CountdownTimerWorkResetBtn>
+    </CountdownTimerWorkWrapper>
   );
 };
 

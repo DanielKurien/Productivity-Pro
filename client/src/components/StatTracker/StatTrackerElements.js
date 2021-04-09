@@ -105,6 +105,13 @@ export const StatTableItem = styled.td`
   font-weight: bolder;
 `;
 
+export const StatTableItemUser = styled.td`
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #5cdb95;
+  font-weight: bold;
+`;
 export const StatTableHead = styled.thead``;
 export const StatTableBody = styled.tbody`
   border: 0.06rem solid #5cdb95;

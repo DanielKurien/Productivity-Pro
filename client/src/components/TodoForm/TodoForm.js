@@ -22,7 +22,6 @@ const TodoForm = () => {
   //function for adding a new todo
   const handleNewTodo = async (event) => {
     event.preventDefault();
-    console.log(newTodo);
     if (newTodo === "") {
       alert("Please add value for Todo");
       return;

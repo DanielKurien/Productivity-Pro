@@ -30,7 +30,7 @@ export const TimerChangerControl = styled.div`
 
 export const TimerChangerText = styled.p`
   color: #cdd9e5;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: "Noto Sans JP", sans-serif;
 `;
 
