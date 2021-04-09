@@ -5,13 +5,18 @@ import { RiLockPasswordFill } from "react-icons/ri";
 export const SignUpWrapper = styled.div`
   box-sizing: border-box;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #2d333b;
   color: white;
 
-  @media only screen and (max-width: 550px) {
+  @media only screen and (max-width: 360px) {
+    border: none;
     background-color: #22272e;
   }
 `;
@@ -19,26 +24,26 @@ export const SignUpWrapper = styled.div`
 export const SignUpForm = styled.form`
   display: flex;
   background-color: #22272e;
-  border: 0.2rem solid #373e47;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  border: 0.2rem solid #373e47;
   border-radius: 0.5rem;
   height: 30vh;
   padding: 3rem;
   flex-direction: column;
 
-  @media only screen and (max-width: 550px) {
-    height: 15vh;
-    width: 40vh;
-    border: none;
-  }
-
-  @media only screen and (max-width: 550px) {
-    width: 30vh;
+  @media only screen and (max-width: 540px) {
+    width: 50vh;
+    height: 25vh;
   }
 
   @media only screen and (max-width: 430px) {
-    width: 20vh;
+    width: 40vh;
+    height: 23vh;
+  }
+
+  @media only screen and (max-width: 360px) {
+    border: none;
   }
 `;
 
@@ -49,18 +54,19 @@ export const SignUpHeading = styled.h1`
   background-color: #22272e;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  padding: 0.5rem;
   border: none;
   border-bottom: 2px solid white;
   padding: 0rem;
   font-size: 2rem;
   margin-bottom: 1rem;
 
-  @media only screen and (max-width: 430px) {
-    font-size: 1.6rem;
+  @media only screen and (max-width: 540px) {
+    font-size: 1.8rem;
   }
 
-  @media only screen and (max-width: 325px) {
-    font-size: 1.3rem;
+  @media only screen and (max-width: 430px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -69,7 +75,6 @@ export const SignUpEmailWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 50vh;
-  max-width: 100vh;
   font-size: 2rem;
 `;
 
@@ -78,9 +83,16 @@ export const SignUpPasswordWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 50vh;
-  max-width: 100vh;
   font-size: 2rem;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 540px) {
+    margin-bottom: 0.5rem;
+  }
+
+  @media only screen and (max-width: 430px) {
+    margin-bottom: 0.2rem;
+  }
 `;
 
 export const SignUpInput = styled.input`
@@ -92,12 +104,11 @@ export const SignUpInput = styled.input`
   height: 2rem;
   font-size: 1.5rem;
   padding: 0.6rem 1rem;
-
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: 540px) {
     font-size: 1.2rem;
   }
 
-  @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 430px) {
     font-size: 1rem;
   }
 `;
@@ -105,11 +116,27 @@ export const SignUpInput = styled.input`
 export const SignUpEmailIcon = styled(AiOutlineMail)`
   color: #5cdb95;
   font-size: 1.6rem;
+
+  @media only screen and (max-width: 540px) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (max-width: 430px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const SignUpPasswordIcon = styled(RiLockPasswordFill)`
   color: #5cdb95;
   font-size: 1.6rem;
+
+  @media only screen and (max-width: 540px) {
+    font-size: 1.4rem;
+  }
+
+  @media only screen and (max-width: 540px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const SignUpButton = styled.button`
@@ -128,7 +155,11 @@ export const SignUpButton = styled.button`
     border: 1px solid white;
   }
 
-  @media only screen and (max-width: 450px) {
-    font-size: 0.8rem;
+  @media only screen and (max-width: 540px) {
+    font-size: 0.75rem;
+  }
+
+  @media only screen and (max-width: 430px) {
+    font-size: 0.6rem;
   }
 `;
