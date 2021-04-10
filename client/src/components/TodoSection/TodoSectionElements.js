@@ -21,10 +21,26 @@ export const TodoMainWrapper = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
   border: 0.2rem solid #373e47;
+
+  @media only screen and (max-width: 1050px) {
+    max-height: 85vh;
+  }
+
+  @media only screen and (max-width: 599px) {
+    max-height: 100%;
+  }
 `;
 
 export const TodoItemsWrapper = styled.div`
   height: 65%;
   max-height: 65%;
   overflow-y: auto;
+
+  @media only screen and (max-width: 1050px) {
+    max-height: 63vh;
+  }
+
+  @media only screen and (max-width: 599px) {
+    max-height: 20vh;
+  }
 `;

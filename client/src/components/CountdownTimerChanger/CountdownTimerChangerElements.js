@@ -16,6 +16,7 @@ export const CountdownTimerChangerWrapper = styled.div`
   background-color: #2d333b;
   box-sizing: border-box;
   text-align: center;
+
   justify-content: space-between;
   flex-direction: column;
   padding: 0.5rem;
@@ -25,6 +26,10 @@ export const CountdownTimerChangerMain = styled.div`
   height: 100%;
   background-color: #22272e;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   border: 0.2rem solid #373e47;
 `;
 
@@ -37,8 +42,14 @@ export const TimerChangerControl = styled.div`
 
 export const TimerChangerText = styled.p`
   color: #cdd9e5;
-  font-size: 1.1rem;
   font-family: "Noto Sans JP", sans-serif;
+
+  @media only screen and (max-width: 1920px) {
+    font-size: 1.8rem;
+  }
+  @media only screen and (max-width: 1400px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const TimerChangerHeading = styled.h1`
@@ -46,4 +57,12 @@ export const TimerChangerHeading = styled.h1`
   text-transform: uppercase;
   color: #5cdb95;
   font-size: 1.3rem;
+
+  @media only screen and (max-width: 1920px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 1400px) {
+    font-size: 1.5rem;
+  }
 `;
