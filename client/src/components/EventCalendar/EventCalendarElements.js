@@ -24,7 +24,8 @@ export const CalendarWrapper = styled.div`
 export const EventCalendarWrapper = styled.div`
 
   .fc-event-title-container{
-    background-color:#373e47;
+    background-color:  #808080;
+    font-family:"Noto Sans JP", sans-serif;
 
   }
   .fc-col-header-cell-cushion{

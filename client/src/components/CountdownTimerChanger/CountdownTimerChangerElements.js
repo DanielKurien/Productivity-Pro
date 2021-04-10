@@ -50,6 +50,10 @@ export const TimerChangerText = styled.p`
   @media only screen and (max-width: 1400px) {
     font-size: 1.1rem;
   }
+
+  @media only screen and (max-width: 450px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const TimerChangerHeading = styled.h1`
@@ -64,5 +68,9 @@ export const TimerChangerHeading = styled.h1`
 
   @media only screen and (max-width: 1400px) {
     font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 450px) {
+    font-size: 1.2rem;
   }
 `;

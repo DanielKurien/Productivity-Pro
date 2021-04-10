@@ -16,6 +16,7 @@ import {
 import { TodosContext } from "../.././context/TodosContext";
 import { AuthContext } from "../.././context/Auth";
 import { db } from "../../services/firebase";
+import { v4 as uuidv4 } from "uuid";
 
 const TodoForm = () => {
   // Context and state needed for TodoForm Component
@@ -24,6 +25,7 @@ const TodoForm = () => {
   const [newTodo, setNewTodo] = useState("");
   const [newDate, setNewDate] = useState(new Date());
   //function for adding a new todo
+
   const handleNewTodo = async (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -43,7 +45,7 @@ const TodoForm = () => {
       let formattedDate = `${newDate.getFullYear()}-${month}-${day}`;
 
       const todoObject = {
-        id: todos.length + 1,
+        id: uuidv4(),
         title: newTodo,
         date: formattedDate,
       };
@@ -62,7 +64,7 @@ const TodoForm = () => {
       }
     } catch {
       const todoObject = {
-        id: todos.length + 1,
+        id: uuidv4(),
         title: newTodo,
       };
 

@@ -101,13 +101,19 @@ export const AddFriendInput = styled.input`
 export const AddFriendButton = styled.button`
   background-color: #2d333b;
   color: white;
-  font-size: 0.8rem;
+  font-family: "Noto Sans JP";
+  font-size: 0.7rem;
+  font-weight: bolder;
   border-radius: 0.7rem;
   padding: 0.1rem 1.1rem;
   border: 0.22rem solid #5cdb95;
 
+  &:hover {
+    background-color: #5cdb95;
+    color: black;
+  }
+
   @media only screen and (max-width: 490px) {
-    font-size: 0.8rem;
     padding: 0.1rem 0.2rem;
     justify-self: center;
   }
