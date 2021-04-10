@@ -23,6 +23,7 @@ import {
   StatTableItem,
   StatTableItemUser,
   StatTableBody,
+  StatTableWrapper,
 } from "./StatTrackerElements";
 import { AuthContext } from "../.././context/Auth";
 import { FriendsContext } from "../../context/FriendsContext";
@@ -146,39 +147,43 @@ const StatTracker = () => {
             <AddFriendButton type="submit">Add Friend</AddFriendButton>
           </AddFriendForm>
         </StatHeading>
-        <StatTrackerTable>
-          <StatTableHead>
-            <StatTableRow>
-              <StatTableHeading>Email</StatTableHeading>
-              <StatTableHeading>Work Timers</StatTableHeading>
-              <StatTableHeading>Todos</StatTableHeading>
-            </StatTableRow>
-          </StatTableHead>
-          <StatTableBody>
-            <StatTableRow>
-              <StatTableItemUser data-label="Email">
-                {userData.email}
-              </StatTableItemUser>
-              <StatTableItemUser data-label="Work Timers">
-                {userData.pomodoros}
-              </StatTableItemUser>
-              <StatTableItemUser data-label="Todos">
-                {userData.todosCompleted}
-              </StatTableItemUser>
-            </StatTableRow>
-            {friendsData.map((friend) => (
-              <StatTableRow key={friend.email}>
-                <StatTableItem data-label="Email">{friend.email}</StatTableItem>
-                <StatTableItem data-label="Work Timers">
-                  {friend.pomodoros}
-                </StatTableItem>
-                <StatTableItem data-label="Todos">
-                  {friend.todosCompleted}
-                </StatTableItem>
+        <StatTableWrapper>
+          <StatTrackerTable>
+            <StatTableHead>
+              <StatTableRow>
+                <StatTableHeading>Email</StatTableHeading>
+                <StatTableHeading>Work Timers</StatTableHeading>
+                <StatTableHeading>Todos</StatTableHeading>
               </StatTableRow>
-            ))}
-          </StatTableBody>
-        </StatTrackerTable>
+            </StatTableHead>
+            <StatTableBody>
+              <StatTableRow>
+                <StatTableItemUser data-label="Email">
+                  {userData.email}
+                </StatTableItemUser>
+                <StatTableItemUser data-label="Work Timers">
+                  {userData.pomodoros}
+                </StatTableItemUser>
+                <StatTableItemUser data-label="Todos">
+                  {userData.todosCompleted}
+                </StatTableItemUser>
+              </StatTableRow>
+              {friendsData.map((friend) => (
+                <StatTableRow key={friend.email}>
+                  <StatTableItem data-label="Email">
+                    {friend.email}
+                  </StatTableItem>
+                  <StatTableItem data-label="Work Timers">
+                    {friend.pomodoros}
+                  </StatTableItem>
+                  <StatTableItem data-label="Todos">
+                    {friend.todosCompleted}
+                  </StatTableItem>
+                </StatTableRow>
+              ))}
+            </StatTableBody>
+          </StatTrackerTable>
+        </StatTableWrapper>
       </StatMainWrapper>
     </StatTrackerWrapper>
   );

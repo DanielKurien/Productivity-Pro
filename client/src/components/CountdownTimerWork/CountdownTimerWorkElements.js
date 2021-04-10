@@ -13,6 +13,10 @@ export const CountdownTimerWorkText = styled.p`
   color: #d87463;
   font-size: 1.7rem;
   font-weight: bold;
+
+  @media only screen and (max-width: 450px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const CountdownTimerDoneText = styled.p`
@@ -23,6 +27,10 @@ export const CountdownTimerWorkMain = styled.div`
   font-size: 1.3rem;
   font-family: "Noto Sans JP";
   font-weight: bold;
+
+  @media only screen and (max-width: 450px) {
+    font-size: 1rem;
+  }
 `;
 
 export const CountdownTimerWorkPauseBtn = styled.button`
