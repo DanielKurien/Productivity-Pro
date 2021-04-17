@@ -29,7 +29,7 @@ const TodoForm = () => {
   const handleNewTodo = async (event) => {
     event.preventDefault();
     if (newTodo === "") {
-      alert("Please add value for Todo");
+      alert("Please add value for Todo.");
       return;
     }
     try {
@@ -60,7 +60,7 @@ const TodoForm = () => {
           });
       } catch (err) {
         console.log(err);
-        alert("Error, todo was not saved. Please refresh page and try again");
+        alert("Error, todo was not saved. Please refresh the page and try again.");
       }
     } catch {
       const todoObject = {
@@ -79,7 +79,7 @@ const TodoForm = () => {
           });
       } catch (err) {
         console.log(err);
-        alert("Error, todo was not saved. Please refresh page and try again");
+        alert("Error, todo was not saved. Please refresh the page and try again.");
       }
     }
 
