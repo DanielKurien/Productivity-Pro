@@ -99,7 +99,7 @@ const StatTracker = () => {
         .then((doc) => {
           if (!doc.exists) {
             alert(
-              "Your friend does not use our application. Sorry about that."
+              "We're sorry, your friend does not use our application. Please encourage them to sign up."
             );
           } else {
             const alreadyFriend = friends.find(
@@ -107,9 +107,9 @@ const StatTracker = () => {
             );
 
             if (alreadyFriend) {
-              alert("This person is already your friend");
+              alert("This person is already your friend.");
             } else if (newFriend === currentUser.email) {
-              alert("You're info is on the Stat Tracker");
+              alert("Your info is on the Stat Tracker.");
             } else {
               const friendObject = {
                 id: friends.length + 1,
@@ -128,7 +128,7 @@ const StatTracker = () => {
           }
         });
     } catch (err) {
-      alert("Please add friend in input");
+      alert("Please add your friend's email in the input.");
     }
     setNewFriend("");
   };
