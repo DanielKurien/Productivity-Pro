@@ -142,7 +142,7 @@ const StatTracker = () => {
             <AddFriendInput
               onChange={(event) => setNewFriend(event.target.value)}
               type="email"
-              placeholder="Add new friend by Email"
+              placeholder="Add new friend by Email "
             />
             <AddFriendButton type="submit">Add Friend</AddFriendButton>
           </AddFriendForm>
